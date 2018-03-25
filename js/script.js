@@ -1,11 +1,8 @@
 $(document).ready(function(){
 
 
+    var objeto = $('#sidebar');                  //CAPTURA A REFERENCIA DO OBJETO
     $('.navbar-toggler').click(function(){          //VERIFICA SE O BOTÃO FOI CLICADO
-
-
-        var objeto = $('#sidebar');                  //CAPTURA A REFERENCIA DO OBJETO
-
 
         if( objeto.hasClass('fechado')){            //VERIFICA SE O MENU ESTA FECHADO PARA ABRIR
             objeto.removeClass("fechado");
@@ -15,9 +12,14 @@ $(document).ready(function(){
             objeto.removeClass("aberto");
             objeto.addClass("fechado");
         }
-
-
     });
+
+    $('.btn-menu').click(function(){                //VERIFICA SE O X NO MENU FOI CLICADO PARA FECHAR
+        objeto.removeClass("aberto");
+        objeto.addClass("fechado");
+    });
+
+
 });
 
 

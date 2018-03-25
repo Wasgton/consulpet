@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <title>ConsulPet</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <script src="js/BootStrap/bootstrap.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/script.js"></script>
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/estilo.css" rel="stylesheet">
+    <link href="css/resposividade.css" rel="stylesheet">
 </head>
 <body>
 <!--NAVBAR DO TOPO-->
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-    <!--BOTÃO QUE ABRE O MENU-->
-<!--    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#Menu" aria-controls="Menu" aria-expanded="false" aria-label="Menu">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+<!--BOTÃO QUE ABRE O MENU-->
+    <button class="navbar-toggler collapsed btn-link bg-dark" type="button" data-toggle="collapse" data-target="#Menu" aria-controls="Menu" aria-expanded="false" aria-label="Menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 <!--LOGO-->
     <a class="navbar-brand" href="index.php">ConsulPET</a>
-        <button class="btn btn-link" type="button">
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
-        </button>
+    <button class="btn btn-link" type="button">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+    </button>
 </nav>
 
 <div class="container-fluid" id="containerBody">

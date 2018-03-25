@@ -1,0 +1,60 @@
+@media (min-width: 1024px){
+    .btn-menu {
+        display: none;
+    }
+
+    .btn-menu .fa-times{
+        display: none;
+    }
+}
+
+@media (max-width: 1024px){
+    .fechado{
+        display: none;
+        left: -172px;
+        transition:0.5s;
+    }
+
+    .aberto{
+        display:block;
+        left: 0;
+        transition:0.5s;
+    }
+
+    .navbar-toggler{
+        display: table;
+    }
+}
+
+@media (max-width: 411px){
+    .fechado{
+        display: none;
+        left: -350px;
+        transition:0.5s;
+    }
+
+    .aberto{
+        display:block;
+        left: 0!important;
+        transition:0.5s;
+    }
+
+    .navbar-toggler{
+        display: table;
+    }
+
+    #sidebar:hover {
+        left: -350px;
+        transition: 0.5s;
+    }
+
+    .btn-menu {
+        margin-left: 85%;
+        margin-top: 5%;
+        margin-bottom: 0;
+    }
+
+    .btn-menu .fa-times{
+        font-size: 25px;
+    }
+}
