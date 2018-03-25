@@ -1,0 +1,59 @@
+.navbar-expand-lg .navbar-toggler {
+    display: table;
+}
+
+.navbar-expand-lg .navbar-nav {
+    display:none;
+}
+
+.navbar-brand {
+    margin: 0 auto;
+}
+
+#sidebar{
+   z-index: 1000;
+    display: block!important;
+}
+
+.aberto{
+    display: block!important;
+    margin-left: 0;
+    transition: 1s;
+}
+
+.fechado{
+    margin-left: -10%;
+    transition: 0.5s;
+}
+
+#containerBody{
+    margin-top: 5%;
+}
+
+#sidebar:hover{
+    margin-left: 0;
+    transition: 1s;
+}
+
+.menu-icon {
+    font-size: 30px;
+    margin-left: 80%;
+}
+
+.list-group ul > li > a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link {
+     padding: 0;
+}
+
+.btn-link:hover{
+    color: black;
+    border: 0;
+}
+.btn-link{
+    color: black;
+    border: 0;
+}
