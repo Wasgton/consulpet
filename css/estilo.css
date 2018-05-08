@@ -1,5 +1,42 @@
+.logo{
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+    margin-top:  -20px;
+}
+
+.title{
+    color: white;
+    text-align: center;
+}
+
 body{
-    background-color: #fff;
+    /*background-color: #fff;*/
+    background-color: #f5f5f5;
+}
+
+#load {
+    z-index: 10000;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    background: rgba(128, 128, 128, 0.5);
+    margin-top: -66px;
+    padding-top: 150px;
+}
+
+#load img{
+    width: 40%;
+}
+
+.pt-3, .py-3 {
+    padding-top: 3rem!important;
 }
 
 .navbar-expand-lg .navbar-toggler {
@@ -10,9 +47,9 @@ body{
     display:none;
 }
 .navbar{
-    background-color: #F8F8FB;
+    background-color: white;
     border-bottom: 1px solid rgba(230,230,230,.7);
-    z-index: 800;
+    /* z-index: 800; */
 }
 .navbar-brand {
     margin: 0 auto;
@@ -23,7 +60,7 @@ body{
     /*margin-top: 4%;*/
     display: block!important;
     width: 280px;
-    left: -155px;
+    left: -184px;
     transition: 0.5s;
     background-color: #2b303b;
     /*background-color: #626262;*/
@@ -33,6 +70,14 @@ body{
     top: 0;
     right: auto;
     overflow: hidden;
+    min-width: 250px;
+    max-width: 250px;
+}
+
+.aberto {
+    display: block;
+    left: 0!important;
+    transition: 0.5s;
 }
 
 #containerBody{
@@ -46,12 +91,36 @@ body{
 
 .menu-icon {
     font-size: 30px;
-    margin-left: 100%;
-    color: blueviolet;
+    /*margin-left: 100%;*/
+    /*color: blueviolet;*/
+    color: lightslategray;
+    float: right;
+    margin-right: 3%;
+    margin-top: -15%;
+    transition:0.3s;
+}
+
+#sidebar .nav-item:hover .row .menu-icon {
+    color: #61c6c5;
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+    transition:0.3s;
+}
+
+#sidebar .row:hover a.link-full span {
+    color: #61c6c5;
+    /*padding-bottom:5px;*/
+    /*border-bottom:3px solid #61c6c5;*/
+    /*transition:0.3s;*/
 }
 
 .nav-link {
     padding: 0;
+    display: inline;
+    border-bottom: 1px;
 }
 
 .btn-link:hover{
@@ -63,9 +132,19 @@ body{
     border: 0;
 }
 
-main{
-    margin-left:10%;
+.fa-thumb-tack{
+    color: black;
+    background: none;
 }
+
+main{
+    margin-left: 8.5%;
+}
+
+main.open{
+    margin-left: 18%;
+}
+
 
 .list-group-item{
     background-color:transparent;
@@ -74,19 +153,58 @@ main{
 }
 
 .link-full {
-    /*width: 240%!important;*/
-    /*height: 100%;*/
-    /*display: block;*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*z-index: 100;*/
+    width:  107%!important;
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 100;
     color: white;
+    height: 32px;
 }
 
 .link-full:hover{
     color:white;
-    border-bottom: 1px solid #6610f2;
-    padding: 2%;
+    /*border-bottom: 1px solid #6610f2;*/
+    /*background-color: #6610f2;*/
+    /*opacity: 0.5;*/
 }
 
+.sidebar-header{
+    padding: 20px;
+}
+
+.card{
+    margin:10px;
+    height:150px;
+}
+
+.card .link-full{
+    text-decoration:none;
+    color: black;
+    height: 100%;
+    width: 100%!important;
+}
+
+.card:hover{
+    -moz-transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+    -webkit-box-shadow: 1px 1px 10px 1px #787265;
+    box-shadow: 1px 1px 4px 1px #787265;
+    transition:0.3s
+
+}
+
+.card .menu-icon {
+    font-size: 50px;
+    color: lightslategray;
+    margin: 0 auto;
+    float: none;
+}
+.card-body{
+    height: 59%;
+    text-align: center;
+}
