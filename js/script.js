@@ -18,7 +18,8 @@ $(document).ready(function(){
         controlaMenu();
     });
 
-    $('.td_id').click(function () {
+    //SCRIPTS USUARIOS
+    $('.usr_id').click(function () {
         var id = $(this).attr("id");
         location.href="usuario_editar?id="+id;
     });
@@ -36,7 +37,14 @@ $(document).ready(function(){
         }
     });
 
+    //SCRIPTS CLIENTES
+    $('.cli_id').click(function () {
+        var id = $(this).attr("id");
+        location.href="cliente_editar?id="+id;
+    });
 
-
+    $('#novo_cliente').click(function () {
+        location.href="novo_cliente";
+    });
 
 });
