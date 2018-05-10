@@ -46,10 +46,10 @@ if($res = mysqli_query(connect(),$query_user)){
 
 
               echo"<tr >
-                        <td class='td_id' id='$id'>$id</td>
-                        <td class='td_id' id='$id'>".$nome." ".$sobrenome."</td>
-                        <td class='td_id' id='$id'>$status</td>
-                        <td class='td_id' id='$id'>$tipo</td>
+                        <td class='usr_id' id='$id'>$id</td>
+                        <td class='usr_id' id='$id'>".$nome." ".$sobrenome."</td>
+                        <td class='usr_id' id='$id'>$status</td>
+                        <td class='usr_id' id='$id'>$tipo</td>
                         <td><button class='delete_user btn-link' id='$id'><i class='fa fa-ban' aria-hidden='true'></i></button></td>
                    </tr>";
     }

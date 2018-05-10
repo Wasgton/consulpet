@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-    // $('#load').hide();
-
     function controlaMenu(){
         var objeto = $('#sidebar');                 //CAPTURA A REFERENCIA DO OBJETO
         if( objeto.hasClass('fechado')){            //VERIFICA SE O MENU ESTA FECHADO PARA ABRIR
@@ -46,5 +44,16 @@ $(document).ready(function(){
     $('#novo_cliente').click(function () {
         location.href="novo_cliente";
     });
+
+    //SCRIPTS ANIMAIS
+    $('.ani_id').click(function () {
+        var id = $(this).attr("id");
+        location.href="animal_editar?id="+id;
+    });
+
+    $('#novo_animal').click(function () {
+        location.href="novo_animal";
+    });
+
 
 });

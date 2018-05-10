@@ -19,6 +19,7 @@ include_once '../_controller/config.php';
     <script src="js/ajax.js" charset="utf-8"></script>
     <script src="js/ajax_usuario.js" charset="utf-8"></script>
     <script src="js/ajax_cliente.js" charset="utf-8"></script>
+    <script src="js/ajax_animais.js" charset="utf-8"></script>
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/estilo.css" rel="stylesheet">
     <link rel="shortcut icon" href="<?=$url_absoluta?>/img/phpThumb_generated_thumbnail.ico" />
