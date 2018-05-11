@@ -8,11 +8,13 @@ $query_animal = "SELECT *
                 FROM ani_animal
                 INNER JOIN rac_raca ON rac_id_raca = ani_id_raca
                 INNER JOIN tpa_tipo_animal on rac_id_tipo = tpa_id_tipo
-                WHERE ani_id_animal = 3";
+                WHERE ani_id_animal = $id";
 
 $res_animal = mysqli_query(connect(),$query_animal);
 
 $dados = mysqli_fetch_array($res_animal);
+
+
 
 
 ?>
@@ -68,11 +70,11 @@ $dados = mysqli_fetch_array($res_animal);
                                 <input class="form-control" type="text" id="idade" name="idade" maxlength="2" value="<?= $dados['ani_idade_animal']?>">
                             </div>
                             <div style="padding: 5px" class="col-md-1">
-                                <label for="peso">Peso</label>
+                                <label for="peso">Peso (kg)</label>
                                 <input class="form-control" type="text" id="peso" name="peso" value="<?= $dados['ani_peso_animal']?>">
                             </div>
                             <div style="padding: 5px" class="col-md-1">
-                                <label for="altura">Altura</label>
+                                <label for="altura">Altura (cm)</label>
                                 <input class="form-control" type="text" id="altura" name="altura" value="<?= $dados['ani_altura_animal']?>">
                             </div>
                         </div>
