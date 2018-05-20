@@ -26,10 +26,10 @@ include_once '../_controller/config.php';
                                     <option id="0">--Selecione o dono do animal--</option>
                                     <?php
                                     $query_clientes = "SELECT pes_nm_pessoa, cli_id_cliente 
-                                                   FROM cli_cliente 
-                                                   INNER JOIN pes_pessoa ON cli_id_pessoa = pes_id_pessoa
-                                                   INNER JOIN usr_usuario on pes_id_pessoa = usr_id_pessoa
-                                                   WHERE usr_st_usuario = 1";
+                                                       FROM cli_cliente 
+                                                       INNER JOIN pes_pessoa ON cli_id_pessoa = pes_id_pessoa
+                                                       INNER JOIN usr_usuario on pes_id_pessoa = usr_id_pessoa
+                                                       WHERE usr_st_usuario = 1";
 
                                     $res_clientes = mysqli_query(connect(),$query_clientes);
 
@@ -47,11 +47,11 @@ include_once '../_controller/config.php';
                                 <input class="form-control" type="text" id="idade" name="idade" maxlength="2">
                             </div>
                             <div style="padding: 5px" class="col-md-1">
-                                <label for="peso">Peso</label>
+                                <label for="peso">Peso (Kg)</label>
                                 <input class="form-control" type="text" id="peso" name="peso">
                             </div>
                             <div style="padding: 5px" class="col-md-1">
-                                <label for="altura">Altura</label>
+                                <label for="altura">Altura (cm)</label>
                                 <input class="form-control" type="text" id="altura" name="altura">
                             </div>
                         </div>
@@ -61,7 +61,7 @@ include_once '../_controller/config.php';
                                 <select class="especie form-control" id="especie" name="especie">
                                     <option id="0">--Escolha a espécie do animal--</option>
                                     <?php
-                                    $query_tipo = "SELECT * FROM tpa_tipo_animal";
+                                    $query_tipo = "SELECT * FROM tpa_tipo_animal WHERE tpa_st_tipo = 1";
 
                                     $res_tipo = mysqli_query(connect(),$query_tipo);
 

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/consulpet.iml" filepath="$PROJECT_DIR$/.idea/consulpet.iml" />
+      <module fileurl="file://C:/Ionic/Nova pasta/prototipo/.idea/prototipo.iml" filepath="C:/Ionic/Nova pasta/prototipo/.idea/prototipo.iml" />
+      <module fileurl="file://C:/Ionic/Nova pasta/prototipo/.idea/prototipo.iml" filepath="C:/Ionic/Nova pasta/prototipo/.idea/prototipo.iml" />
     </modules>
   </component>
 </project>

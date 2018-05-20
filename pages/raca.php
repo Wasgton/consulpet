@@ -1,6 +1,6 @@
 <main role="main" class="col-md-9 pt-3">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Animais</h1><span><a href="home">Home</a></span>
+        <h1 class="h2">Raças</h1><span><a href="animais">Animais</a></span>
     </div>
 
     <div class='container' style='padding-top: 3%;'>
@@ -10,8 +10,8 @@
             <div class='col-md-9'>
                 <table class='table table-hover'>
                     <tr>
-                        <th scope="col">Animal</th>
-                        <th scope="col">Dono</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Raça</th>
                         <th scope="col">Espécie</th>
                         <th scope="col">Excluir</th>
                     </tr>
@@ -57,6 +57,11 @@
                 <div style="padding-bottom: 30px">
                     <button id='novo_animal' type='button' class='btn btn-success'>
                         Adicionar
+                    </button>
+                </div>
+                <div style="padding-bottom: 30px">
+                    <button id='raca' type='button' class='btn btn-success'>
+                        Raças
                     </button>
                 </div>
             </div>

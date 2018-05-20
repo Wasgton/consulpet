@@ -17,43 +17,53 @@ $(document).ready(function(){
     });
 
     //SCRIPTS USUARIOS
-    $('.usr_id').click(function () {
-        var id = $(this).attr("id");
-        location.href="usuario_editar?id="+id;
-    });
+        $('.usr_id').click(function () {
+            var id = $(this).attr("id");
+            location.href="usuario_editar?id="+id;
+        });
 
-    $('#novo_usuario').click(function () {
-        location.href="novo_usuario";
-    });
+        $('#novo_usuario').click(function () {
+            location.href="novo_usuario";
+        });
 
-    $('#tipo').change(function() {
-        var id = $('option:selected').attr('id');
-        if (id === '3') {
-            $('.CRMV').removeAttr("style");
-        } else {
-            $('.CRMV').hide();
-        }
-    });
+        $('#tipo').change(function() {
+            var id = $('option:selected').attr('id');
+            if (id === '3') {
+                $('.CRMV').removeAttr("style");
+            } else {
+                $('.CRMV').hide();
+            }
+        });
 
     //SCRIPTS CLIENTES
-    $('.cli_id').click(function () {
-        var id = $(this).attr("id");
-        location.href="cliente_editar?id="+id;
-    });
+        $('.cli_id').click(function () {
+            var id = $(this).attr("id");
+            location.href="cliente_editar?id="+id;
+        });
 
-    $('#novo_cliente').click(function () {
-        location.href="novo_cliente";
-    });
+        $('#novo_cliente').click(function () {
+            location.href="novo_cliente";
+        });
 
     //SCRIPTS ANIMAIS
-    $('.ani_id').click(function () {
-        var id = $(this).attr("id");
-        location.href="animal_editar?id="+id;
-    });
+        $('.ani_id').click(function () {
+            var id = $(this).attr("id");
+            location.href="animal_editar?id="+id;
+        });
 
-    $('#novo_animal').click(function () {
-        location.href="novo_animal";
-    });
+        $('#novo_animal').click(function () {
+            location.href="novo_animal";
+        });
+
+    //SCRIPTS ESPECIE
+        $('.esp_id').click(function () {
+            var id = $(this).attr("id");
+            location.href="especie_editar?id="+id;
+        });
+
+        $('#nova_especie').click(function () {
+            location.href="nova_especie";
+        });
 
 
 });
