@@ -1,13 +1,3 @@
-@media (min-width: 1024px){
-    .btn-menu {
-        display: none;
-    }
-
-    .btn-menu .fa-times{
-        display: none;
-    }
-}
-
 @media (max-width: 1024px){
     .fechado{
         display: none;
@@ -26,7 +16,80 @@
     }
 }
 
-@media (max-width: 411px){
+@media (min-width: 1024px){
+    .btn-menu {
+        display: none;
+    }
+
+    .btn-menu .fa-times{
+        display: none;
+    }
+
+    .navbar-expand-lg .navbar-toggler {
+        display: none;
+    }
+}
+
+@media (max-width: 944px){
+    .logo {
+        width: 145px;
+        height: 50px;
+    }
+
+    .pt-3, .py-3 {
+        padding-top: 6rem!important;
+
+    }
+    main{
+        margin: 0 auto;
+    }
+
+}
+@media (max-width: 900px) {
+    #load {
+        padding-top: 248px;
+    }
+}
+@media (max-width: 750px){
+    #load {
+        padding-top: 248px;
+    }
+    #load img{
+        width:60%;
+    }
+
+    .fechado{
+        display: none;
+        left: -350px;
+        transition:0.5s;
+    }
+
+    .aberto{
+        display:block;
+        left: 0!important;
+        transition:0.5s;
+    }
+    .navbar-toggler{
+        display: table;
+    }
+
+    #sidebar:hover {
+        left: -350px;
+        transition: 0.5s;
+    }
+
+    .btn-menu {
+        margin-left: 85%;
+        margin-top: 5%;
+        margin-bottom: 0;
+    }
+
+    .btn-menu .fa-times{
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 480px){
     .fechado{
         display: none;
         left: -350px;
@@ -57,4 +120,12 @@
     .btn-menu .fa-times{
         font-size: 25px;
     }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+        margin-top: -9px;
+    }
+
+
 }

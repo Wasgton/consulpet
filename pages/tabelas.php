@@ -4,9 +4,9 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <a href="usuarios" class="link-full">
+                        <a href="especies" class="link-full">
                             <div class="card-header">
-                                <h5 class="card-title">Usuários</h5>
+                                <h5 class="card-title">Espécies</h5>
                             </div>
                             <div class="card-body" style="text-align: center">
                                 <i class="fa fa-users  menu-icon" aria-hidden="true"></i>
@@ -16,9 +16,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <a href="clientes" class="link-full">
+                        <a href="racas" class="link-full">
                             <div class="card-header">
-                                <h5 class="card-title">Clientes</h5>
+                                <h5 class="card-title">Raças</h5>
                             </div>
                             <div class="card-body" style="text-align: center">
                                 <i class="fa fa-user-circle-o  menu-icon" aria-hidden="true"></i>
@@ -28,26 +28,36 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <a href="animais" class="link-full">
+                        <a href="tipos_atendimentos" class="link-full">
                             <div class="card-header">
-                                <h5 class="card-title">Animais</h5>
+                                <h5 class="card-title">Tipos de atendimento</h5>
                             </div>
                             <div class="card-body">
-                                <i class="fa fa-paw  menu-icon" aria-hidden="true"></i>
+                                <i class="fa fa-tasks  menu-icon" aria-hidden="true"></i>
                             </div>
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <a href="agenda" class="link-full">
+                        <a href="tipos_usuario" class="link-full">
                             <div class="card-header">
-                                <h5 class="card-title">Agenda</h5>
+                                <h5 class="card-title">Tipos de usuário</h5>
                             </div>
-                            <div class="card-body">
-                                <i class="fa fa-calendar-check-o  menu-icon" aria-hidden="true"></i>
+                            <div class="card-body" style="text-align: center">
+                                <i class="fa fa-user-circle-o  menu-icon" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <a href="#" class="link-full">
+                            <div class="card-header">
+                                <h5 class="card-title">Cidades</h5>
+                            </div>
+                            <div class="card-body" style="text-align: center">
+                                <i class="fa fa-user-circle-o  menu-icon" aria-hidden="true"></i>
                             </div>
                         </a>
                     </div>
