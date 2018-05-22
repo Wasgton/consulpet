@@ -3,6 +3,7 @@
 include_once '../_controller/config.php';
 
 $id = $_GET['id'];
+
 //RECUPERA DADOS DO ANIMAL SELECIONADO
 $query_animal = "SELECT *
                 FROM ani_animal
@@ -13,9 +14,6 @@ $query_animal = "SELECT *
 $res_animal = mysqli_query(connect(),$query_animal);
 
 $dados = mysqli_fetch_array($res_animal);
-
-
-
 
 ?>
     <main role="main" class="col-md-9 pt-3 px-4">
@@ -120,7 +118,7 @@ $dados = mysqli_fetch_array($res_animal);
 
                                         while($dados_raca = mysqli_fetch_array($res_raca)){
                                             $id_raca = $dados_raca['rac_id_raca'];
-                                            $raca = utf8_encode($dados_raca['rac_ds_raca']);
+                                            $raca = $dados_raca['rac_ds_raca'];
 
                                             if($id_raca===$dados['rac_id_raca']){
                                                 $selected_raca = "selected";

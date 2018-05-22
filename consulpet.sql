@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Maio-2018 às 10:09
+-- Generation Time: 21-Maio-2018 às 21:05
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `consulpet`
 --
-CREATE DATABASE IF NOT EXISTS `consulpet` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `consulpet`;
 
 -- --------------------------------------------------------
 
@@ -46,7 +44,7 @@ CREATE TABLE `ani_animal` (
 --
 
 INSERT INTO `ani_animal` (`ani_id_animal`, `ani_id_raca`, `ani_id_cliente`, `ani_nm_animal`, `ani_idade_animal`, `ani_peso_animal`, `ani_altura_animal`, `ani_sexo_animal`, `ani_vacina_animal`, `ani_doenca_animal`) VALUES
-(2, 1, 2, 'TotÃ³', '3', '15.000', '60', 'macho', 'sdasd', 'dasd');
+(2, 1, 2, 'TotÃ³', '3', '1.500', '60', 'macho', 'sdasd', 'dasd');
 
 -- --------------------------------------------------------
 
@@ -84,7 +82,7 @@ CREATE TABLE `cid_cidade` (
 INSERT INTO `cid_cidade` (`cid_id_cidade`, `cid_ds_cidade`, `cid_est_cidade`) VALUES
 (1, 'Salvador', 'BA'),
 (2, 'Lauro de Freitas', 'BA'),
-(3, 'Camaçari', 'BA');
+(3, 'CamaÃ§ari', 'BA');
 
 -- --------------------------------------------------------
 
@@ -103,7 +101,8 @@ CREATE TABLE `cli_cliente` (
 --
 
 INSERT INTO `cli_cliente` (`cli_id_cliente`, `cli_id_pessoa`, `cli_tel_cliente`) VALUES
-(2, 5, '7100000000');
+(2, 5, '7100000000'),
+(4, 12, '87987978');
 
 -- --------------------------------------------------------
 
@@ -124,7 +123,8 @@ CREATE TABLE `end_endereco` (
 --
 
 INSERT INTO `end_endereco` (`end_id_endereco`, `end_id_cidade`, `end_id_cliente`, `end_bairro_endereco`, `end_ds_endereco`) VALUES
-(2, 1, 2, 'Teste', 'Teste1');
+(2, 1, 2, 'Teste', 'Teste1'),
+(4, 2, 4, 'dasdas', 'dasds');
 
 -- --------------------------------------------------------
 
@@ -149,7 +149,8 @@ INSERT INTO `pes_pessoa` (`pes_id_pessoa`, `pes_nm_pessoa`, `pes_sbnm_pessoa`, `
 (5, 'Danilo', 'Reis', 'masculino'),
 (7, '', '', ''),
 (8, 'Danilo', 'Reis', 'masculino'),
-(9, 'Danilo', 'Reis', 'masculino');
+(9, 'Danilo', 'Reis', 'masculino'),
+(12, 'a', 'b', 'masculino');
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,8 @@ CREATE TABLE `rac_raca` (
 
 INSERT INTO `rac_raca` (`rac_id_raca`, `rac_ds_raca`, `rac_id_tipo`, `rac_st_raca`) VALUES
 (1, 'Poodle', 1, '1'),
-(2, 'Husky', 1, '1');
+(2, 'Husky', 1, '1'),
+(3, 'DÃ¡lmata', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -235,8 +237,9 @@ CREATE TABLE `usr_usuario` (
 
 INSERT INTO `usr_usuario` (`usr_id_usuario`, `usr_id_pessoa`, `usr_tipo_usuario`, `usr_crmv_usuario`, `usr_login_usuario`, `usr_password_usuario`, `usr_st_usuario`) VALUES
 (1, 1, 1, NULL, 'admin', '356a192b7913b04c54574d18c28d46e6395428ab', '1'),
-(2, 2, 1, NULL, 'wasgton.junior', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '0'),
-(5, 5, 1, NULL, 'danilo.reis', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1');
+(2, 2, 1, NULL, 'wasgton.junior', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1'),
+(5, 5, 1, NULL, 'danilo.reis', '8cb2237d0679ca88db6464eac60da96345513964', '1'),
+(8, 12, 4, NULL, 'a.b', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0');
 
 --
 -- Indexes for dumped tables
@@ -343,32 +346,32 @@ ALTER TABLE `atd_atendimento`
 -- AUTO_INCREMENT for table `cid_cidade`
 --
 ALTER TABLE `cid_cidade`
-  MODIFY `cid_id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cid_id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `cli_cliente`
 --
 ALTER TABLE `cli_cliente`
-  MODIFY `cli_id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cli_id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `end_endereco`
 --
 ALTER TABLE `end_endereco`
-  MODIFY `end_id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `end_id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pes_pessoa`
 --
 ALTER TABLE `pes_pessoa`
-  MODIFY `pes_id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `pes_id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `rac_raca`
 --
 ALTER TABLE `rac_raca`
-  MODIFY `rac_id_raca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `rac_id_raca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tpa_tipo_animal`
 --
 ALTER TABLE `tpa_tipo_animal`
-  MODIFY `tpa_id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tpa_id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tpu_tipo_usuario`
 --
@@ -378,7 +381,7 @@ ALTER TABLE `tpu_tipo_usuario`
 -- AUTO_INCREMENT for table `usr_usuario`
 --
 ALTER TABLE `usr_usuario`
-  MODIFY `usr_id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `usr_id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --

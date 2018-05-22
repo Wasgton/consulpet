@@ -35,7 +35,7 @@
                             echo"<tr >
                         <td class='cli_id' id='$id'>$id</td>
                         <td class='cli_id' id='$id'>".$nome." ".$sobrenome."</td>
-                        <td><button class='delete_cliente btn-link' id='$id'><i class='fa fa-ban' aria-hidden='true'></i></button></td>
+                        <td><button class='delete_cliente btn-link' id='$id'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
                    </tr>";
                         }
                     }

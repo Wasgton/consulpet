@@ -3,7 +3,7 @@ $(document).ready(function() {
 $('#especie').change(function(){
     var especie = $('#especie option:selected').attr('id');
     $.ajax({
-       url:url+'/_controller/ajax/raca.php',
+       url:url+'/_controller/ajax/racas.php',
        type:'post',
        dataType:'text',
        data:'id='+especie,

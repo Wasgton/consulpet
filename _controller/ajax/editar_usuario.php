@@ -13,8 +13,9 @@ $words          = explode(' ',$sbnome);
 $login          = strtolower($nome.'.'.$words[count($words)-1]);
 $CRVM           = $_POST['crmv'];
 $tipo_usuario   = $_POST['tipo'];
-$senha          = sha1($_POST['Senha']);
+$senha          = $_POST['Senha'];
 $sexo           = $_POST['sexo'];
+
 
 if(isset($_POST['status'])){
     $status = '1';
@@ -27,9 +28,6 @@ $query_pessoa = "UPDATE pes_pessoa
                      pes_sbnm_pessoa = '$sbnome',
                      pes_sexo_pessoa = '$sexo'
                  WHERE pes_id_pessoa = $id;";
-
-
-
 
 if(mysqli_query(connect(),$query_pessoa)) {
 
@@ -46,11 +44,12 @@ if(mysqli_query(connect(),$query_pessoa)) {
 
     //VERIFICA SE O CAMPO DE SENHA FOI INSERIDO PARA ALTERAÇÃO E ACRESCENTA AO UPDATE
     if ($senha !== '') {
+        $senha = sha1($_POST['Senha']);
         $query_usuario .= "usr_password_usuario = '$senha',";
     }
 
     $query_usuario .= "usr_st_usuario = $status
-                       WHERE usr_id_usuario = $id;";
+                       WHERE usr_id_pessoa = $id;";
 
     if(mysqli_query(connect(),$query_usuario)){
         echo 1;

@@ -46,7 +46,7 @@
                         <td class='ani_id' id='$id_animal'>$nome_animal</td>
                         <td class='ani_id' id='$id_animal'>$nome_dono</td>
                         <td class='ani_id' id='$id_animal'>$tipo_animal</td>
-                        <td><button class='delete_animal btn-link' id='$id_animal'><i class='fa fa-ban' aria-hidden='true'></i></button></td>
+                        <td><button class='delete_animal btn-link' id='$id_animal'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
                    </tr>";
                         }
                     }

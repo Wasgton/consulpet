@@ -65,5 +65,23 @@ $(document).ready(function(){
             location.href="nova_especie";
         });
 
+    //SCRIPTS RAÇA
+        $('.rac_id').click(function () {
+            var id = $(this).attr("id");
+            location.href="raca_editar?id="+id;
+        });
 
+        $('#nova_raca').click(function () {
+            location.href="nova_raca";
+        });
+
+    //SCRIPTS CIDADE
+        $('.cid_id').click(function () {
+            var id = $(this).attr("id");
+            location.href="cidade_editar?id="+id;
+        });
+
+        $('#nova_cidade').click(function () {
+            location.href="nova_cidade";
+        });
 });

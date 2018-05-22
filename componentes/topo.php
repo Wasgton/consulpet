@@ -13,13 +13,6 @@ include_once '../_controller/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
 
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <script src="js/BootStrap/bootstrap.min.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/script.js" charset="utf-8"></script>
-    <script src="js/ajax.js" charset="utf-8"></script>
-    <script src="js/ajax_usuario.js" charset="utf-8"></script>
-    <script src="js/ajax_cliente.js" charset="utf-8"></script>
-    <script src="js/ajax_animais.js" charset="utf-8"></script>
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/estilo.css" rel="stylesheet">
     <link rel="shortcut icon" href="<?=$url_absoluta?>/img/phpThumb_generated_thumbnail.ico" />

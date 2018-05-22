@@ -10,9 +10,10 @@ $query_usuario = " SELECT pes_nm_pessoa,
                           usr_crmv_usuario,
                           usr_st_usuario,
                           usr_login_usuario
-                   FROM usr_usuario INNER JOIN pes_pessoa on pes_id_pessoa = usr_id_pessoa
+                   FROM usr_usuario 
+                   INNER JOIN pes_pessoa on pes_id_pessoa = usr_id_pessoa
                    INNER JOIN tpu_tipo_usuario on tpu_id_tipo_usuario = usr_tipo_usuario
-                   and usr_id_usuario = $id";
+                   and pes_id_pessoa = $id";
 
 $res_usuario = mysqli_query(connect(),$query_usuario);
 

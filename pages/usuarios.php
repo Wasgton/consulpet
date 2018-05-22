@@ -17,51 +17,51 @@
                     <th>Excluir</th>
                 </tr>
 
-<?php
+                <?php
 
-$query_user = "SELECT pes_id_pessoa,
-                      pes_nm_pessoa,
-                      pes_sbnm_pessoa,
-                      pes_sexo_pessoa,
-                      usr_st_usuario, 
-                      tpu_ds_tipo_usuario
-               FROM usr_usuario
-               INNER JOIN tpu_tipo_usuario on tpu_id_tipo_usuario = usr_tipo_usuario
-               INNER JOIN pes_pessoa on pes_id_pessoa = usr_id_pessoa";
+                $query_user = "SELECT pes_id_pessoa,
+                                      pes_nm_pessoa,
+                                      pes_sbnm_pessoa,
+                                      pes_sexo_pessoa,
+                                      usr_st_usuario, 
+                                      tpu_ds_tipo_usuario
+                               FROM usr_usuario
+                               INNER JOIN tpu_tipo_usuario on tpu_id_tipo_usuario = usr_tipo_usuario
+                               INNER JOIN pes_pessoa on pes_id_pessoa = usr_id_pessoa";
 
-if($res = mysqli_query(connect(),$query_user)){
+                if($res = mysqli_query(connect(),$query_user)){
 
-    while($dados = mysqli_fetch_array($res)){
-            $id = $dados['pes_id_pessoa'];
-            $nome = $dados['pes_nm_pessoa'];
-            $sobrenome = $dados['pes_sbnm_pessoa'];
-            $sexo = $dados['pes_sexo_pessoa'];
+                    while($dados = mysqli_fetch_array($res)){
+                            $id = $dados['pes_id_pessoa'];
+                            $nome = $dados['pes_nm_pessoa'];
+                            $sobrenome = $dados['pes_sbnm_pessoa'];
+                            $sexo = $dados['pes_sexo_pessoa'];
 
-                if($dados['usr_st_usuario']=="1"){
-                    $status = 'Ativo';
-                }else{
-                    $status = 'Inativo';
+                                if($dados['usr_st_usuario']=="1"){
+                                    $status = 'Ativo';
+                                }else{
+                                    $status = 'Inativo';
+                                }
+                            $tipo = $dados['tpu_ds_tipo_usuario'];
+
+
+                              echo"<tr >
+                                        <td class='usr_id' id='$id'>$id</td>
+                                        <td class='usr_id' id='$id'>".$nome." ".$sobrenome."</td>
+                                        <td class='usr_id' id='$id'>$status</td>
+                                        <td class='usr_id' id='$id'>$tipo</td>
+                                        <td><button class='delete_user btn-link' id='$id'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
+                                   </tr>";
+                    }
                 }
-            $tipo = $dados['tpu_ds_tipo_usuario'];
-
-
-              echo"<tr >
-                        <td class='usr_id' id='$id'>$id</td>
-                        <td class='usr_id' id='$id'>".$nome." ".$sobrenome."</td>
-                        <td class='usr_id' id='$id'>$status</td>
-                        <td class='usr_id' id='$id'>$tipo</td>
-                        <td><button class='delete_user btn-link' id='$id'><i class='fa fa-ban' aria-hidden='true'></i></button></td>
-                   </tr>";
-    }
-}
-?>
-</table>
+                ?>
+            </table>
         </div>
-            <div class='col-md-2'>
-                <button id='novo_usuario' type='button' class='btn btn-success'>
-                    Adicionar
-                </button>
-            </div>
+        <div class='col-md-2'>
+            <button id='novo_usuario' type='button' class='btn btn-success'>
+                Adicionar
+            </button>
+        </div>
     </div>
 </div>
 </main>

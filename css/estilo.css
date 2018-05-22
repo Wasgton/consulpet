@@ -50,6 +50,8 @@ body{
     background-color: white;
     border-bottom: 1px solid rgba(230,230,230,.7);
     /* z-index: 800; */
+    -webkit-box-shadow: 4px 0px 20px 0px rgba(120, 114, 101, 0.5);
+    box-shadow: 4px 0px 20px 0px rgba(120, 114, 101, 0.5);
 }
 .navbar-brand {
     margin: 0 auto;
@@ -213,4 +215,27 @@ main.open{
 .card-body{
     height: 59%;
     text-align: center;
+}
+
+td{
+    cursor: pointer;
+}
+
+td:last-of-type{
+    cursor: auto;
+}
+
+td button .fa-trash {
+    transition:0.5s;
+}
+
+td:hover button .fa-trash{
+    color:red;
+    transform:scale(1.2);
+    transition:0.3s;
+}
+
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
 }

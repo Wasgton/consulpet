@@ -55,8 +55,8 @@
             <li class="nav-item list-group-item">
                 <div class="row">
                     <div class="col-md-12">
-                        <a class="nav-link link-full" href="atendimentos"><span>Tipos de atendimento</span></a>
-                        <i class="fa fa-tasks  menu-icon" aria-hidden="true"></i>
+                        <a class="nav-link link-full" href="tabelas"><span>Tabelas</span></a>
+                        <i class="fa fa-table  menu-icon" aria-hidden="true"></i>
                     </div>
                 </div>
             </li>

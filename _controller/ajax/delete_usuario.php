@@ -17,7 +17,7 @@ if($rs = mysqli_query(connect(),$query_validacao)){
         exit;
     }else{
         $delete_usr = "delete from usr_usuario
-                       where usr_id_usuario = $id";
+                       where usr_id_pessoa = $id";
 
         $delete_pes = "delete from pes_pessoa
                        where pes_id_pessoa = $id";
@@ -31,7 +31,5 @@ if($rs = mysqli_query(connect(),$query_validacao)){
         }else{
             echo '1';
         }
-
-
     }
 }

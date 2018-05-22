@@ -40,7 +40,7 @@
                         <td class='esp_id' id='$id_especie'>$id_especie</td>
                         <td class='esp_id' id='$id_especie'>$especie</td>
                         <td class='esp_id' id='$id_especie'>$status</td>
-                        <td><button class='delete_especie btn-link' id='$id_especie'><i class='fa fa-ban' aria-hidden='true'></i></button></td>
+                        <td><button class='delete_especie btn-link' id='$id_especie'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
                    </tr>";
                         }
                     }
