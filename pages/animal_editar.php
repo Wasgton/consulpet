@@ -42,8 +42,9 @@ $dados = mysqli_fetch_array($res_animal);
                                     $query_clientes = "SELECT pes_nm_pessoa, cli_id_cliente 
                                                        FROM cli_cliente 
                                                        INNER JOIN pes_pessoa ON cli_id_pessoa = pes_id_pessoa
-                                                       INNER JOIN usr_usuario ON pes_id_pessoa = usr_id_pessoa
-                                                       WHERE usr_st_usuario = 1";
+                                                       INNER JOIN usr_usuario on pes_id_pessoa = usr_id_pessoa
+                                                       WHERE usr_st_usuario = 1
+                                                       AND usr_tipo_usuario = 4";
 
                                     $res_clientes = mysqli_query(connect(),$query_clientes);
 
@@ -100,7 +101,7 @@ $dados = mysqli_fetch_array($res_animal);
                                             $selected_especie = "";
                                         }
 
-                                        echo  "<option class='option' id='$id' value='$id' $selected_especie>$tipo</option>";
+                                        echo  "<option class='option' id='$id_especie' value='$id_especie' $selected_especie>$tipo</option>";
                                     }
                                     ?>
                                 </select>

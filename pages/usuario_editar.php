@@ -102,6 +102,14 @@ if($dados = mysqli_fetch_assoc($res_usuario)){
                             <label>Confirmação</label>
                             <input class="form-control" type="password" id="confirmacao" name="confirmacao">
                         </div>
+                        <div style="padding: 5px" class="col-md-3">
+                            <div class="alert alert-success" role="alert" id="alert_sucesso_senha">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </div>
+                            <div class="alert alert-danger" role="alert" id="alert_erro_senha">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="row"> <!--INICIO DA TERCEIRA LINHA-->
                         <div style="padding: 5px" class="col-md-3">

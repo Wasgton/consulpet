@@ -3,6 +3,8 @@
 include_once 'config.php';
 
 session_start();
+error_reporting(1);
+
 
 $usuario = $_POST['user'];
 $senha = sha1($_POST['senha']);
@@ -22,12 +24,12 @@ if($result = mysqli_query(connect(),$query)) {
         $_SESSION["id"] = $dados['usr_id_usuario'];
         $_SESSION["usuario"] = $dados['pes_nm_pessoa'];
 
-        echo 1;
+        echo '1';
 
     }else{
-        echo 0;
+        echo 'Usuário ou senha incorretos!';
     }
 }else{
-    echo 2;
+    echo 'Erro ao tentar realizar o login, entre em contato com a administração do sistema!!';
 }
 

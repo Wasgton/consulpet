@@ -15,6 +15,8 @@ include_once '../_controller/config.php';
         <div class="col-md-12">
             <form id='form-usuario' class="form-group form-row" method="post">
                 <div class="container">
+                    <div class="alert alert-success" role="alert" id="alert_sucesso_usuario"></div>
+                    <div class="alert alert-danger" role="alert" id="alert_erro_usuario"></div>
                     <div class="row"><!--INICIO DA PRIMEIRA LINHA-->
                         <div style="padding: 5px" class="col-md-3">
                             <label>Nome</label>
@@ -55,6 +57,14 @@ include_once '../_controller/config.php';
                         <div style="padding: 5px" class="col-md-3">
                             <label>Confirmação</label>
                             <input class="form-control" type="password" id="confirmacao" name="confirmacao">
+                        </div>
+                        <div style="padding: 5px" class="col-md-3">
+                            <div class="alert alert-success" role="alert" id="alert_sucesso_senha">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </div>
+                            <div class="alert alert-danger" role="alert" id="alert_erro_senha">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="row"> <!--INICIO DA TERCEIRA LINHA-->

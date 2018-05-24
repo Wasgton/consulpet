@@ -15,6 +15,13 @@ $tipo_usuario   = $_POST['tipo'];
 $senha          = sha1($_POST['Senha']);
 $sexo           = $_POST['sexo'];
 $status         = '0';
+$confirmacao    = $_POST['confirmacao'];
+
+
+if($senha!==$confirmacao){
+    echo '4';
+    exit;
+}
 
 if(isset($_POST['status'])){
     $status = '1';

@@ -9,9 +9,9 @@ $delete_animal = "delete from ani_animal
 
 if(mysqli_query(connect(),$delete_animal)){
 
-    echo '1';
+    echo 'Agendamento deletado com sucesso!';
     exit;
 
 }else{
-    echo '2';
+    echo 'Erro ao deletar agendamento, entre em contato com o administrador do sistema!';
 }

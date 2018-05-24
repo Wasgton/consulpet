@@ -18,7 +18,9 @@ $(document).ready(function() {
                         alert('Erro ao atualizar os dados da pessoa, favor entrar em contato com o administrador do sistema!');
                     } else if (data === '2') {
                         alert('Erro ao atualizar os dados do usuario, favor entrar em contato com o administrador do sistema!');
-                    } else if (data === '1') {
+                    } else if (data === '4') {
+                        alert('Senhas não correspondem!');
+                    }else if (data === '1') {
                         alert('Dados do usuario atualizados com sucesso!');
                         window.location.href = url + '/usuarios';
                     }
@@ -51,6 +53,8 @@ $(document).ready(function() {
                         window.location.href = url + '/usuarios';
                     } else if (data === '3') {
                         alert('Erro ao cadastrar o usuario, favor entrar em contato com o administrador do sistema!');
+                    }else if (data === '4') {
+                        alert('Senhas não correspondem!');
                     }
                 });
 

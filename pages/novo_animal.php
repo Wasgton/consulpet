@@ -29,7 +29,8 @@ include_once '../_controller/config.php';
                                                        FROM cli_cliente 
                                                        INNER JOIN pes_pessoa ON cli_id_pessoa = pes_id_pessoa
                                                        INNER JOIN usr_usuario on pes_id_pessoa = usr_id_pessoa
-                                                       WHERE usr_st_usuario = 1";
+                                                       WHERE usr_st_usuario = 1
+                                                       AND usr_tipo_usuario = 4";
 
                                     $res_clientes = mysqli_query(connect(),$query_clientes);
 
@@ -67,7 +68,7 @@ include_once '../_controller/config.php';
 
                                     while($dados_tipo = mysqli_fetch_array($res_tipo)){
                                         $id = $dados_tipo['tpa_id_tipo'];
-                                        $tipo = utf8_encode($dados_tipo['tpa_ds_tipo']);
+                                        $tipo = $dados_tipo['tpa_ds_tipo'];
 
                                         echo  "<option class='option' id='$id' value='$id'>$tipo</option>";
                                     }

@@ -1,15 +1,14 @@
 $(document).ready(function() {
 
 $('#especie').change(function(){
-    var especie = $('#especie option:selected').attr('id');
+    var especie = $('#especie option:selected').val();
     $.ajax({
-       url:url+'/_controller/ajax/racas.php',
+       url:url+'/_controller/ajax/raca.php',
        type:'post',
        dataType:'text',
        data:'id='+especie,
        success:function(data){
             $('#raca').html(data);
-
        }
     });
 });
@@ -40,7 +39,7 @@ $('#especie').change(function(){
         });
     });
 
-    //AJAX DELEÇÃO DE animal
+    //AJAX DELEÇÃO DE ANIMAL
     $('.delete_animal').click(function () {
 
         var animal_id = $(this).attr("id");

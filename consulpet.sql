@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Maio-2018 às 21:05
+-- Generation Time: 24-Maio-2018 às 01:17
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `consulpet`
 --
+CREATE DATABASE IF NOT EXISTS `consulpet` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `consulpet`;
 
 -- --------------------------------------------------------
 
@@ -44,7 +46,10 @@ CREATE TABLE `ani_animal` (
 --
 
 INSERT INTO `ani_animal` (`ani_id_animal`, `ani_id_raca`, `ani_id_cliente`, `ani_nm_animal`, `ani_idade_animal`, `ani_peso_animal`, `ani_altura_animal`, `ani_sexo_animal`, `ani_vacina_animal`, `ani_doenca_animal`) VALUES
-(2, 1, 2, 'TotÃ³', '3', '1.500', '60', 'macho', 'sdasd', 'dasd');
+(2, 1, 2, 'TotÃ³', '3', '1.500', '60', 'macho', 'sdasd', 'dasd'),
+(3, 2, 4, 'Teste', '2', '3.500', '90', 'macho', 'dasa', 'dasd'),
+(4, 6, 2, 'aaa', '1', '1.000', '123', 'macho', 'dasdas', 'das'),
+(5, 1, 2, 'Teste,animal', '1', '1.000', '1', 'macho', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -55,13 +60,21 @@ INSERT INTO `ani_animal` (`ani_id_animal`, `ani_id_raca`, `ani_id_cliente`, `ani
 CREATE TABLE `atd_atendimento` (
   `atd_id_atendimento` int(11) NOT NULL,
   `atd_id_animal` int(11) NOT NULL,
-  `atd_hr_atendimento` time NOT NULL,
-  `atd_dt_atendimento` date NOT NULL,
+  `atd_inicio_atendimento` datetime NOT NULL,
+  `atd_fim_atendimento` datetime NOT NULL,
   `atd_ds_atendimento` varchar(45) NOT NULL,
-  `atd_obs_atendimento` varchar(45) DEFAULT NULL,
+  `atd_obs_atendimento` varchar(100) DEFAULT NULL,
   `atd_st_atendimento` varchar(1) NOT NULL,
   `atd_id_medico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `atd_atendimento`
+--
+
+INSERT INTO `atd_atendimento` (`atd_id_atendimento`, `atd_id_animal`, `atd_inicio_atendimento`, `atd_fim_atendimento`, `atd_ds_atendimento`, `atd_obs_atendimento`, `atd_st_atendimento`, `atd_id_medico`) VALUES
+(4, 5, '2018-05-25 09:20:00', '2018-05-25 10:00:00', 'Teste de ediÃ§Ã£o', 'Teste de ediÃ§Ã£o', '1', 8),
+(9, 2, '2018-05-17 15:30:00', '2018-05-17 16:00:00', 'Teste Modal', 'dasds', '2', 2);
 
 -- --------------------------------------------------------
 
@@ -172,7 +185,10 @@ CREATE TABLE `rac_raca` (
 INSERT INTO `rac_raca` (`rac_id_raca`, `rac_ds_raca`, `rac_id_tipo`, `rac_st_raca`) VALUES
 (1, 'Poodle', 1, '1'),
 (2, 'Husky', 1, '1'),
-(3, 'DÃ¡lmata', 1, '1');
+(3, 'DÃ¡lmata', 1, '1'),
+(4, 'SiamÃªs', 2, '1'),
+(5, 'Persa', 2, '1'),
+(6, 'Sphynx', 2, '1');
 
 -- --------------------------------------------------------
 
@@ -237,9 +253,9 @@ CREATE TABLE `usr_usuario` (
 
 INSERT INTO `usr_usuario` (`usr_id_usuario`, `usr_id_pessoa`, `usr_tipo_usuario`, `usr_crmv_usuario`, `usr_login_usuario`, `usr_password_usuario`, `usr_st_usuario`) VALUES
 (1, 1, 1, NULL, 'admin', '356a192b7913b04c54574d18c28d46e6395428ab', '1'),
-(2, 2, 1, NULL, 'wasgton.junior', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1'),
-(5, 5, 1, NULL, 'danilo.reis', '8cb2237d0679ca88db6464eac60da96345513964', '1'),
-(8, 12, 4, NULL, 'a.b', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0');
+(2, 2, 3, 1234, 'wasgton.junior', '356a192b7913b04c54574d18c28d46e6395428ab', '1'),
+(5, 5, 4, NULL, 'danilo.reis', '8cb2237d0679ca88db6464eac60da96345513964', '1'),
+(8, 12, 3, 44444, 'a.b', '7c4a8d09ca3762af61e59520943dc26494f8941b', '1');
 
 --
 -- Indexes for dumped tables
@@ -336,17 +352,17 @@ ALTER TABLE `usr_usuario`
 -- AUTO_INCREMENT for table `ani_animal`
 --
 ALTER TABLE `ani_animal`
-  MODIFY `ani_id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ani_id_animal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `atd_atendimento`
 --
 ALTER TABLE `atd_atendimento`
-  MODIFY `atd_id_atendimento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `atd_id_atendimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `cid_cidade`
 --
 ALTER TABLE `cid_cidade`
-  MODIFY `cid_id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cid_id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `cli_cliente`
 --
@@ -366,7 +382,7 @@ ALTER TABLE `pes_pessoa`
 -- AUTO_INCREMENT for table `rac_raca`
 --
 ALTER TABLE `rac_raca`
-  MODIFY `rac_id_raca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `rac_id_raca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tpa_tipo_animal`
 --

@@ -1,3 +1,26 @@
+#alert_erro,
+#alert_sucesso,
+#alert_erro_modal,
+#alert_sucesso_modal,
+.alert_erro_modal,
+.alert_sucesso_modal,
+#alert_sucesso_usuario,
+#alert_erro_usuario,
+#alert_sucesso_senha,
+#alert_erro_senha
+{
+    display: none;
+}
+
+#alert_sucesso_senha,
+#alert_erro_senha{
+    width: 34px;
+    padding: 4px 10px;
+    height: 34px;
+    margin-top: 33px;
+    margin-bottom: 0;
+}
+
 .logo{
     width: 200px;
     height: 50px;
@@ -63,7 +86,7 @@ body{
     display: block!important;
     width: 280px;
     left: -184px;
-    transition: 0.5s;
+    transition: 1s;
     background-color: #2b303b;
     /*background-color: #626262;*/
     z-index: 1000;
@@ -88,7 +111,7 @@ body{
 
 #sidebar:hover{
     left: 0;
-    transition: 0.5s;
+    transition: 1s;
 }
 
 .menu-icon {
@@ -238,4 +261,60 @@ td:hover button .fa-trash{
 #calendar {
     max-width: 900px;
     margin: 0 auto;
+}
+
+footer{
+    margin-bottom: 200px;
+    width: 100%;
+}
+
+#calendar table{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+    color: #fff;
+    background-color: #66c3c2;
+}
+
+thead {
+    background-color: #778899;
+}
+
+/*
+.fc-unthemed td.fc-today {
+    background: #2fecea !important;
+    color:red;
+}
+.fc-day-top a{
+    width: 14%!important;
+    height: 102px!important;
+    z-index: 100;
+    color: white;
+    text-align:right;
+    position: absolute;
+}
+
+
+.fc-day-top:hover a{
+    background-color: #2fecea;
+}
+*/
+
+dd{
+    display:inline-block
+}
+
+dt{
+    display:inline-block
+}
+
+.form-visualizar{
+    display:block;
+}
+.form-editar{
+    display:none;
+}
+
+.form-visualizar .btn{
+    margin-right: 5px;
 }

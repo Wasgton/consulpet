@@ -29,11 +29,13 @@ if(isset($_SESSION["id"])){
 <body>
     <form class="form-signin" method="post">
         <img class="mb-auto" src="img/logo-login.png" alt="">
+        <div class="alert alert-danger" role="alert" id="alert_login"></div>
         <input type="text" class="form-control" name="user" id="user" placeholder="Usuário">
         <br>
         <input type="password" class="form-control" name="senha" id="senha" placeholder="Password">
         <br>
         <input class="btn btn-success btn-block" type="submit" id="submit" value="Login">
+        <br>
     </form>
 <div id="teste">
 
