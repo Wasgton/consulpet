@@ -1,5 +1,24 @@
 <?php
 
+$where = "";
+$selectable = "";
+
+
+if($_SESSION['tipo']==4){
+    $where = "and cli_id_pessoa =". $_SESSION['id_pessoa'];
+}
+
+if($_SESSION['tipo']==3){
+    $where = "and atd_id_medico =". $_SESSION['id'];
+}
+
+if($_SESSION['tipo'] != 4 ){
+    $selectable = 'true';
+}else{
+    $selectable = 'false';
+}
+
+
 $query = "SELECT atd_id_atendimento as id,
                  atd_ds_atendimento as title,
                  atd_inicio_atendimento as dt_start,
@@ -17,9 +36,11 @@ $query = "SELECT atd_id_atendimento as id,
           INNER JOIN ani_animal on atd_id_animal = ani_id_animal
           INNER JOIN cli_cliente on cli_id_cliente = ani_id_cliente
           INNER JOIN pes_pessoa on cli_id_pessoa = pes_id_pessoa
-          WHERE atd_st_atendimento = 1";
+          WHERE atd_st_atendimento = 1 ";
 
-$res = mysqli_query(connect(),$query);
+//echo $query.$where;
+
+$res = mysqli_query(connect(),$query.$where);
 ?>
 
 <script>
@@ -38,14 +59,15 @@ $res = mysqli_query(connect(),$query);
                 events: [
                     <?php while($dados = mysqli_fetch_array($res)){ ?>
                     {
-                        id: '<?php echo $dados['id'];?>',
-                        title: '<?php echo $dados['title'];?>',
-                        start: '<?php echo $dados['dt_start'];?>',
-                        end: '<?php echo $dados['dt_end'];?>',
-                        name:'<?php echo $dados['dono'];?>',
-                        animal:'<?php echo $dados['animal'];?>',
-                        medico:'<?php echo $dados['medico'];?>',
-                        obs:'<?php echo $dados['obs'];?>',
+                        id:       '<?php echo $dados['id'];?>',
+                        title:    '<?php echo $dados['title'];?>',
+                        start:    '<?php echo $dados['dt_start'];?>',
+                        end:      '<?php echo $dados['dt_end'];?>',
+                        name:     '<?php echo $dados['dono'];?>',
+                        animal:   '<?php echo $dados['animal'];?>',
+                        medico:   '<?php echo $dados['medico'];?>',
+                        <?php $string = preg_replace('/\s/',' ',$dados['obs']);?>
+                        obs:      '<?php echo $string?>',
                         id_animal:'<?php echo $dados['id_animal'];?>',
                         id_medico:'<?php echo $dados['id_medico'];?>',
 
@@ -78,7 +100,8 @@ $res = mysqli_query(connect(),$query);
                     $('#modalAgenda').modal('show');
 
                 },
-                selectable:true,
+
+                selectable:<?=$selectable?>,
                 selectHelper:true,
                 select:function(start,end){
 

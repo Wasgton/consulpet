@@ -31,7 +31,9 @@ $(document).ready(function(){
         });
 
         $('#tipo').change(function() {
-            var id = $('option:selected').attr('id');
+
+            var id = $(this).val();
+                        
             if (id === '3') {
                 $('.CRMV').removeAttr("style");
             } else {

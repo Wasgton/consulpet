@@ -1,5 +1,7 @@
 <?php
 
+include_once 'componentes/redirecionamento.php';
+
 include_once '../_controller/config.php';
 
 $id = $_GET['id'];

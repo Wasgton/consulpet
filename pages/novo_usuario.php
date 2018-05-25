@@ -1,5 +1,10 @@
 <?php
 
+include_once 'componentes/redirecionamento.php';
+
+?>
+<?php
+
 include_once '../_controller/config.php';
 
 ?>

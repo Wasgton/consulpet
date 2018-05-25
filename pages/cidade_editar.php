@@ -1,5 +1,8 @@
 <?php
 
+include_once 'componentes/redirecionamento.php';
+
+
 $id = $_GET['id'];
 
 $query = "SELECT *

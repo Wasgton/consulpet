@@ -1,3 +1,9 @@
+<?php
+
+include_once 'componentes/redirecionamento.php';
+
+?>
+
 <main role="main" class="col-md-9 pt-3">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
         <h1 class="h2">Animais</h1><span><a href="home">Home</a></span>
@@ -29,7 +35,7 @@
                                     INNER JOIN pes_pessoa ON pes_id_pessoa = cli_id_pessoa
                                     INNER JOIN rac_raca on rac_id_raca = ani_id_raca
                                     INNER JOIN tpa_tipo_animal on tpa_id_tipo = rac_id_tipo
-                                    INNER JOIN usr_usuario on pes_id_pessoa = usr_id_usuario
+                                    INNER JOIN usr_usuario on pes_id_pessoa = usr_id_pessoa
                                     WHERE usr_st_usuario = 1";
 
                     if($res = mysqli_query(connect(),$query_animais)){

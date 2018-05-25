@@ -20,30 +20,36 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item list-group-item">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a class="nav-link link-full" href="usuarios"><span>Usuários</span></a>
-                        <i class="fa fa-users  menu-icon" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item list-group-item">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a class="nav-link link-full" href="clientes"><span>Clientes </span></a>
-                        <i class="fa fa-user-circle-o  menu-icon" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item list-group-item">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a class="nav-link link-full" href="animais"><span>Animais</span></a>
-                        <i class="fa fa-paw  menu-icon" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </li>
+            <?php
+
+            if($_SESSION['tipo']!='4' && $_SESSION['tipo']!='3') {
+
+              echo '<li class="nav-item list-group-item" >
+                        <div class="row" >
+                            <div class="col-md-12" >
+                                <a class="nav-link link-full" href = "usuarios" ><span > Usuários</span ></a >
+                                <i class="fa fa-users  menu-icon" aria-hidden="true" ></i >
+                            </div >
+                        </div >
+                    </li >
+                    <li class="nav-item list-group-item" >
+                        <div class="row">
+                            <div class="col-md-12" >
+                                <a class="nav-link link-full" href = "clientes" ><span > Clientes </span ></a >
+                                <i class="fa fa-user-circle-o  menu-icon" aria-hidden = "true" ></i >
+                            </div >
+                        </div >
+                    </li >
+                    <li class="nav-item list-group-item" >
+                        <div class="row" >
+                            <div class="col-md-12" >
+                                <a class="nav-link link-full" href = "animais" ><span > Animais</span ></a >
+                                <i class="fa fa-paw  menu-icon" aria-hidden="true" ></i >
+                            </div >
+                        </div >
+                    </li >';
+                    }
+                    ?>
             <li class="nav-item list-group-item">
                 <div class="row">
                     <div class="col-md-12">
@@ -52,14 +58,20 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item list-group-item">
+        <?php
+
+        if($_SESSION['tipo']!='4' && $_SESSION['tipo']!='3') {
+
+            echo '<li class="nav-item list-group-item">
                 <div class="row">
                     <div class="col-md-12">
                         <a class="nav-link link-full" href="tabelas"><span>Tabelas</span></a>
                         <i class="fa fa-table  menu-icon" aria-hidden="true"></i>
                     </div>
                 </div>
-            </li>
+            </li>';
+        }
+        ?>
         </ul>
     </div>
 </nav>

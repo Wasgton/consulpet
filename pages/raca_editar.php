@@ -1,5 +1,11 @@
 <?php
 
+include_once 'componentes/redirecionamento.php';
+
+?>
+
+<?php
+
 
 $id = $_GET['id'];
 
