@@ -28,6 +28,7 @@ $dados = mysqli_fetch_array($res_animal);
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <?php include_once 'componentes/alerts.php'; ?>
                 <form id='form-animais' class="form-group form-row" method="post">
                     <div class="container">
                         <div class="row"><!--INICIO DA PRIMEIRA LINHA-->
@@ -71,7 +72,7 @@ $dados = mysqli_fetch_array($res_animal);
                                 <input class="form-control" type="text" id="idade" name="idade" maxlength="2" value="<?= $dados['ani_idade_animal']?>">
                             </div>
                             <div style="padding: 5px" class="col-md-1">
-                                <label for="peso">Peso (kg)</label>
+                                <label for="peso">Peso (g)</label>
                                 <input class="form-control" type="text" id="peso" name="peso" value="<?= $dados['ani_peso_animal']?>">
                             </div>
                             <div style="padding: 5px" class="col-md-1">

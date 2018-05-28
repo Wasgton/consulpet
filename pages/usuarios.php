@@ -56,9 +56,17 @@ include_once 'componentes/redirecionamento.php';
                                         <td class='usr_id' id='$id'>$id</td>
                                         <td class='usr_id' id='$id'>".$nome." ".$sobrenome."</td>
                                         <td class='usr_id' id='$id'>$status</td>
-                                        <td class='usr_id' id='$id'>$tipo</td>
-                                        <td><button class='delete_user btn-link' id='$id'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
+                                        <td class='usr_id' id='$id'>$tipo</td>";
+
+                              if($tipo!="Cliente"){
+                                  echo     "<td><button class='delete_user btn-link' id='$id'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
                                    </tr>";
+                              }else{
+                                  echo     "<td><button class='btn-link disabled' id='$id' disabled><i class='fa fa-trash' aria-hidden='true'></i></button></td>
+                                   </tr>";
+                              }
+
+
                     }
                 }
                 ?>

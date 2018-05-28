@@ -7,6 +7,10 @@ $id_pessoa = $_POST['id_pessoa'];
 $nome   = $_POST['nome'];
 $sbnome = $_POST['sobrenome'];
 $sexo   = $_POST['sexo'];
+$cpf    = $_POST['cpf'];
+
+//DADOS DE USUÁRIO
+$login          = $cpf;
 
 //DADOS CLIENTE
 $id_cliente = $_POST['id_cliente'];
@@ -19,10 +23,17 @@ $cidade   = $_POST['cidade'];
 $query_pessoa = "UPDATE pes_pessoa
                  SET pes_nm_pessoa='$nome',
                      pes_sbnm_pessoa='$sbnome',
-                     pes_sexo_pessoa='$sexo'
+                     pes_sexo_pessoa='$sexo',
+                     pes_cpf_pessoa = '$cpf'
                  WHERE pes_id_pessoa = $id_pessoa";
 
 if(mysqli_query(connect(),$query_pessoa)) {
+
+    $query_usuario = "UPDATE usr_usuario
+                      SET usr_login_usuario = '$cpf'
+                      WHERE usr_id_pessoa = $id_pessoa";
+
+    if(mysqli_query(connect(),$query_usuario)){
 
         $query_cliente = "UPDATE cli_cliente
                           SET cli_tel_cliente = '$telefone'
@@ -44,7 +55,12 @@ if(mysqli_query(connect(),$query_pessoa)) {
             echo '3';
             exit;
         }
+    }else{
+        echo '2';
+        exit;
+    }
+
 }else{
-    echo '2';
+    echo '4';
     exit;
 }

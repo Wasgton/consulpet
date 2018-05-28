@@ -258,6 +258,12 @@ td:hover button .fa-trash{
     transition:0.3s;
 }
 
+td:hover button.disabled .fa-trash{
+    color:#6c757d;
+    transform:scale(1);
+    transition:0s;
+}
+
 #calendar {
     max-width: 900px;
     margin: 0 auto;
@@ -317,4 +323,48 @@ dt{
 
 .form-visualizar .btn{
     margin-right: 5px;
+}
+
+.dropdown-menu {
+    right: 0!important;
+    background: white;
+    left: -109px;
+}
+
+.dropdown-toggle{
+    background: white;
+}
+.dropdown-toggle i{
+    color: #66c3c2;
+}
+.dropdown-toggle:focus{
+    box-shadow: none;
+}
+
+button:hover .fa-power-off{
+    color:red;
+    transform:scale(1.2);
+    transition:0.3s;
+}
+
+#alert_erro_cadastros,
+#alert_sucesso_cadastros{
+    display: none;
+}
+
+.dados{
+    font-size:18px;
+    margin-left:30px;
+    --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+main h4{
+    font-size: 25px!important;
+}
+
+.usuario{
+    font-family: sans-serif;
+    padding-top: 2px;
+    margin-bottom: 0;
 }

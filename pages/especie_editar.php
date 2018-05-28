@@ -24,6 +24,7 @@ $dados = mysqli_fetch_array($res);
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <?php include_once 'componentes/alerts.php'; ?>
             <form id='form-especie' class="form-group form-row" method="post">
                 <div class="container">
                     <div class="row"><!--INICIO DA PRIMEIRA LINHA-->

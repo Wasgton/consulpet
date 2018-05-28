@@ -24,18 +24,30 @@
 
             if($_SESSION['tipo']!='4' && $_SESSION['tipo']!='3') {
 
-              echo '<li class="nav-item list-group-item" >
+                echo '<li class="nav-item list-group-item" >
                         <div class="row" >
                             <div class="col-md-12" >
                                 <a class="nav-link link-full" href = "usuarios" ><span > Usuários</span ></a >
                                 <i class="fa fa-users  menu-icon" aria-hidden="true" ></i >
                             </div >
                         </div >
-                    </li >
-                    <li class="nav-item list-group-item" >
+                    </li >';
+            }
+            ?>
+
+            <?php
+                $page_cliente = "clientes";
+                if ($_SESSION['tipo'] != 3) {
+                    $page_cliente = 'clientes';
+                } else {
+                    $page_cliente = 'v_clientes';
+                }
+
+            if($_SESSION['tipo']!='4'){
+                echo'<li class="nav-item list-group-item" >
                         <div class="row">
                             <div class="col-md-12" >
-                                <a class="nav-link link-full" href = "clientes" ><span > Clientes </span ></a >
+                                <a class="nav-link link-full" href ="<?=$page_cliente?>" ><span > Clientes </span ></a >
                                 <i class="fa fa-user-circle-o  menu-icon" aria-hidden = "true" ></i >
                             </div >
                         </div >
@@ -48,8 +60,8 @@
                             </div >
                         </div >
                     </li >';
-                    }
-                    ?>
+            }
+?>
             <li class="nav-item list-group-item">
                 <div class="row">
                     <div class="col-md-12">

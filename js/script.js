@@ -26,6 +26,11 @@ $(document).ready(function(){
             location.href="usuario_editar?id="+id;
         });
 
+        $('.detalhe_usuario').click(function(){
+            var id =  $(this).attr("id");
+            location.href="detalhes_cliente?id="+id;
+        });
+
         $('#novo_usuario').click(function () {
             location.href="novo_usuario";
         });
@@ -66,10 +71,20 @@ $(document).ready(function(){
             location.href="novo_cliente";
         });
 
+        $('.detalhes').click(function () {
+            var id = $(this).attr("id");
+            location.href="detalhes_cliente?id="+id;
+        });
+
     //SCRIPTS ANIMAIS
         $('.ani_id').click(function () {
             var id = $(this).attr("id");
             location.href="animal_editar?id="+id;
+        });
+
+        $('.detalhes_animal').click(function(){
+            var id = $(this).attr("id");
+            location.href="detalhes_animal?id="+id;
         });
 
         $('#novo_animal').click(function () {
@@ -147,4 +162,57 @@ $(document).ready(function(){
         $('#end').keypress(function(){
             DataHora(event, this);
         });
+
+    function CPF(evento, objeto){
+
+        var keypress=(window.event)?event.keyCode:evento.which;
+
+        campo = eval (objeto);
+        if (campo.value === '000.000.000-00'){
+            campo.value=""
+        }
+
+        caracteres = '0123456789';
+        separacao1 = '.';
+        separacao2 = '-';
+        conjunto1 = 3;
+        conjunto2 = 7;
+        conjunto3 = 11;
+        conjunto4 = 13;
+        // conjunto5 = 16;
+        if ((caracteres.search(String.fromCharCode (keypress))!==-1) && campo.value.length < (19)){
+            if (campo.value.length === conjunto1 )
+                campo.value = campo.value + separacao1;
+            else if (campo.value.length === conjunto2)
+                campo.value = campo.value + separacao1;
+            else if (campo.value.length === conjunto3)
+                campo.value = campo.value + separacao2;
+        }else{
+            event.returnValue = false;
+        }
+    }
+
+    $('#cpf').keypress(function(){
+        CPF(event, this);
+    });
+
+
+    $('#peso').unbind().keypress(function(ev){
+        var self = $(this);
+        var caractere = (String.fromCharCode(ev.keyCode).replace(/\D/g, "") - 0) + "";
+        if(!ev.keyCode) caractere = "";
+        var limite = 4;
+        var texto = (self.val().replace(/\D/g, "") - 0) + caractere;
+        while(texto.length < limite) {
+            texto = "0" + texto;
+        };
+        self.val(texto.replace(new RegExp("\(\\d{"+(limite-1)+"}$\)"), ".$1"));
+        return false;
+    })
+        .keyup(function(ev){
+            if(!String.fromCharCode(ev.keyCode) - 0 >= 0){
+                $(this).keypress()
+            }
+        });
+
 });

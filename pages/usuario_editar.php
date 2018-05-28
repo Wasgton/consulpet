@@ -6,6 +6,7 @@ $id = $_GET['id'];
 $query_usuario = " SELECT pes_nm_pessoa,
                           pes_sbnm_pessoa,
                           pes_sexo_pessoa,
+                          pes_cpf_pessoa,
                           usr_tipo_usuario,
                           usr_crmv_usuario,
                           usr_st_usuario,
@@ -24,6 +25,8 @@ $tipo="";
 $crmv="";
 $login="";
 $status ="";
+$cpf = "";
+
 if($dados = mysqli_fetch_assoc($res_usuario)){
 
     $nome       = $dados['pes_nm_pessoa'];
@@ -33,8 +36,7 @@ if($dados = mysqli_fetch_assoc($res_usuario)){
     $crmv       = $dados['usr_crmv_usuario'];
     $login      = $dados['usr_login_usuario'];
     $status     = $dados['usr_st_usuario'];
-
-
+    $cpf        = $dados['pes_cpf_pessoa'];
 
 }
 
@@ -48,33 +50,38 @@ if($dados = mysqli_fetch_assoc($res_usuario)){
 </div>
 </div>
 <div class="container">
-    <div class="row">
+        <div class="row">
         <div class="col-md-12">
             <form id='form-usuario' class="form-group form-row" method="post">
                 <div class="container">
+                    <?php include 'componentes/alerts.php';?>
                     <div class="row"><!--INICIO DA PRIMEIRA LINHA-->
                         <div style="padding: 5px" class="col-md-3">
                             <label>Nome</label>
                             <input type="text" id="id" name="id" value="<?=$id?>" hidden>
-                            <input class="form-control" type="text" id="nome" name="nome" value="<?=$nome?>">
+                            <input class="form-control" type="text" id="nome" name="nome" value="<?=$nome?>" required>
                         </div>
                         <div style="padding: 5px" class="col-md-3">
                             <label>Sobrenome</label>
-                            <input class="form-control" type="text" id="sobrenome" name="sobrenome" value="<?=$sobrenome?>">
+                            <input class="form-control" type="text" id="sobrenome" name="sobrenome" value="<?=$sobrenome?>" required>
                         </div>
-                        <div style="padding: 5px" class="col-md-3">
+                        <?php
+
+                        echo '<div style="padding: 5px" class="col-md-3">
                             <label>Tipo</label>
-                            <select class="tipo_usuario form-control" id="tipo" name="tipo">
-                                <option id="0">----Escolha um tipo de usuário----</option>
-                                <?php
-                                $query_tipo = "SELECT * FROM tpu_tipo_usuario";
+                            <select class="tipo_usuario form-control" id="tipo" name="tipo" required>
+                                <option id="0">----Escolha um tipo de usuário----</option>';
+
+                                $query_tipo = "SELECT * 
+                                               FROM tpu_tipo_usuario
+                                               WHERE tpu_id_tipo_usuario";
 
                                 $res_tipo = mysqli_query(connect(),$query_tipo);
                                 $selected = '';
 
                                 while($dados_tipo = mysqli_fetch_array($res_tipo)){
                                     $id_tipo = $dados_tipo['tpu_id_tipo_usuario'];
-                                    $tipo_lista = utf8_encode($dados_tipo['tpu_ds_tipo_usuario']);
+                                    $tipo_lista = $dados_tipo['tpu_ds_tipo_usuario'];
 
                                     if($tipo == $id_tipo){
                                         $selected = 'selected';
@@ -85,22 +92,27 @@ if($dados = mysqli_fetch_assoc($res_usuario)){
                                     echo  "<option class='option' id='$id_tipo' value='$id_tipo' $selected>$tipo_lista</option>";
 
                                 }
-                                ?>
-                            </select>
-                        </div>
+                           echo "</select>
+                        </div>";
+
+                    ?>
                         <div style="padding: 5px" class="col-md-3">
                             <label class="CRMV" style="display: <?php if($tipo==3){ echo 'table';}else{echo 'none';}?>;">CRMV </label>
-                            <input class="form-control CRMV" type="text" id="crmv" name="crmv" value="<?= $crmv?>" style="display: <?php if($tipo==3){ echo 'table';}else{echo 'none';}?>;">
+                            <input class="form-control CRMV" type="text" id="crmv" name="crmv" value="<?= $crmv?>" style="display: <?php if($tipo==3){ echo 'table';}else{echo 'none';}?>;" required>
                         </div>
                     </div>
                     <div class="row"> <!--INICIO DA SEGUNDA LINHA-->
                         <div style="padding: 5px" class="col-md-3">
+                            <label>CPF</label>
+                            <input class="form-control" type="text" id="cpf" name="cpf" value="<?=$cpf?>" required>
+                        </div>
+                        <div style="padding: 5px" class="col-md-3">
                             <label>Senha</label>
-                            <input class="form-control" type="password" id="Senha" name="Senha">
+                            <input class="form-control" type="password" id="Senha" name="Senha" required>
                         </div>
                         <div style="padding: 5px" class="col-md-3">
                             <label>Confirmação</label>
-                            <input class="form-control" type="password" id="confirmacao" name="confirmacao">
+                            <input class="form-control" type="password" id="confirmacao" name="confirmacao" required>
                         </div>
                         <div style="padding: 5px" class="col-md-3">
                             <div class="alert alert-success" role="alert" id="alert_sucesso_senha">

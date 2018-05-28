@@ -3,9 +3,11 @@
 include_once 'componentes/redirecionamento.php';
 
 ?>
+
+
 <main role="main" class="col-md-9 pt-3">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Clientes</h1><span>
+        <h1 class="h2">Clientes</h1><span><a href="home">Home</a></span>
     </div>
 
     <div class='container' style='padding-top: 3%;'>
@@ -15,47 +17,49 @@ include_once 'componentes/redirecionamento.php';
             <div class='col-md-9'>
                 <table class='table table-hover'>
                     <tr>
-                        <th>#</th>
-                        <th>Detalhes</th>
                         <th>Cliente</th>
-                        <th>Excluir</th>
+                        <th>Status</th>
                     </tr>
 
                     <?php
 
-                    $query_user = "SELECT cli_id_cliente,
+                    $query_user = "SELECT pes_id_pessoa,
                                           pes_nm_pessoa,
                                           pes_sbnm_pessoa,
                                           pes_sexo_pessoa,
-                                          cli_id_pessoa
-                                   FROM cli_cliente
-                                   INNER JOIN pes_pessoa on pes_id_pessoa = cli_id_pessoa";
+                                          usr_st_usuario, 
+                                          tpu_ds_tipo_usuario
+                                   FROM usr_usuario
+                                   INNER JOIN tpu_tipo_usuario on tpu_id_tipo_usuario = usr_tipo_usuario
+                                   INNER JOIN pes_pessoa on pes_id_pessoa = usr_id_pessoa
+                                   WHERE tpu_id_tipo_usuario = 4";
 
                     if($res = mysqli_query(connect(),$query_user)){
 
                         while($dados = mysqli_fetch_array($res)){
-                            $id = $dados['cli_id_cliente'];
+                            $id = $dados['pes_id_pessoa'];
                             $nome = $dados['pes_nm_pessoa'];
                             $sobrenome = $dados['pes_sbnm_pessoa'];
                             $sexo = $dados['pes_sexo_pessoa'];
-                            $id_pessoa =$dados['cli_id_pessoa'];
 
-                echo"<tr >
-                        <td class='cli_id' id='$id'>$id</td>
-                        <td class='detalhes' id='$id_pessoa'><i class='fa fa-search' aria-hidden='true'></i></td>
-                        <td class='cli_id' id='$id'>".$nome." ".$sobrenome."</td>
-                        <td><button class='delete_cliente btn-link' id='$id'><i class='fa fa-trash' aria-hidden='true'></i></button></td>
-                   </tr>";
+                            if($dados['usr_st_usuario']=="1"){
+                                $status = 'Ativo';
+                            }else{
+                                $status = 'Inativo';
+                            }
+                            $tipo = $dados['tpu_ds_tipo_usuario'];
+
+
+                            echo"<tr >
+                                        <td class='detalhe_usuario' id='$id'>".$nome." ".$sobrenome."</td>
+                                        <td class='detalhe_usuario' id='$id'>$status</td>";
+
                         }
                     }
                     ?>
                 </table>
             </div>
-            <div class='col-md-2'>
-                <button id='novo_cliente' type='button' class='btn btn-success'>
-                    Adicionar
-                </button>
-            </div>
+
         </div>
     </div>
 </main>

@@ -5,7 +5,7 @@ include_once 'componentes/redirecionamento.php';
 
 $id = $_GET['id'];
 
-$query_cliente = " SELECT 
+$query_cliente = " SELECT pes_cpf_pessoa,
                           pes_id_pessoa,
                           cli_id_cliente,
                           end_id_endereco,
@@ -30,6 +30,7 @@ $res_cliente = mysqli_query(connect(),$query_cliente);
 $nome   = "";
 $sbnome = "";
 $sexo   = "";
+$cpf    = "";
 
 //DADOS CLIENTE
 $telefone = "";
@@ -40,6 +41,7 @@ $cidade   = "";
 if($dados = mysqli_fetch_assoc($res_cliente)){
 
     $nome       = $dados['pes_nm_pessoa'];
+    $cpf        = $dados['pes_cpf_pessoa'];
     $sobrenome  = $dados['pes_sbnm_pessoa'];
     $sexo       = $dados['pes_sexo_pessoa'];
     $telefone   = $dados['cli_tel_cliente'];
@@ -67,6 +69,7 @@ if($dados = mysqli_fetch_assoc($res_cliente)){
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <?php include_once 'componentes/alerts.php'; ?>
             <form id='form-cliente' class="form-group form-row" method="post">
                 <div class="container">
 
@@ -85,11 +88,15 @@ if($dados = mysqli_fetch_assoc($res_cliente)){
                             <input class="form-control" type="text" id="sobrenome" name="sobrenome" value="<?=$sobrenome?>">
                         </div>
                         <div style="padding: 5px" class="col-md-3">
-                            <label>Telefone</label>
-                            <input type="text" class="form-control" name="telefone" id="telefone" value="<?=$telefone?>">
+                            <label>CPF</label>
+                            <input class="form-control" type="text" id="cpf" name="cpf" value="<?=$cpf?>">
                         </div>
                     </div>
                     <div class="row"> <!--INICIO DA SEGUNDA LINHA-->
+                        <div style="padding: 5px" class="col-md-3">
+                            <label>Telefone</label>
+                            <input type="text" class="form-control" name="telefone" id="telefone" value="<?=$telefone?>">
+                        </div>
                         <div style="padding: 5px" class="col-md-3">
                             <label>Endereço</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" value="<?=$endereco?>">
@@ -98,6 +105,8 @@ if($dados = mysqli_fetch_assoc($res_cliente)){
                             <label>Bairro</label>
                             <input type="text" class="form-control" name="bairro" id="bairro" value="<?=$bairro?>">
                         </div>
+                    </div>
+                    <div class="row"> <!--INICIO DA TERCEIRA LINHA-->
                         <div style="padding: 5px" class="col-md-3">
                             <label>Cidade</label>
                             <select class="tipo_usuario form-control" id="cidade" name="cidade">
@@ -125,8 +134,6 @@ if($dados = mysqli_fetch_assoc($res_cliente)){
                                 ?>
                             </select>
                         </div>
-                    </div>
-                    <div class="row"> <!--INICIO DA TERCEIRA LINHA-->
                         <div style="padding: 5px" class="col-md-3">
                             <label>Sexo: </label><br>
                             <label for="masculino">Masculino <input class="custom-radio" type="radio" id="masculino" value="masculino" name="sexo" <?php if($sexo=='masculino') echo 'checked' ?>></label>

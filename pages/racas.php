@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 include_once 'componentes/redirecionamento.php';
 
@@ -34,6 +34,7 @@ include_once 'componentes/redirecionamento.php';
                     if($res = mysqli_query(connect(),$query_raca)){
 
                         while($dados = mysqli_fetch_array($res)){
+
                                 $id_raca  = $dados['rac_id_raca'];
                                 $raca     = $dados['rac_ds_raca'];
                                 $status   = $dados['rac_st_raca'];

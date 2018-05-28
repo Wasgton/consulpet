@@ -5,25 +5,35 @@ $(document).ready(function() {
     $('#cadastrar_cidade').click(function () {
 
         event.preventDefault();
-        $.ajax({
-            url: url + '/_controller/ajax/insert_cidade.php',
-            type: 'post',
-            dataType: 'text',
-            data: $('#form-cidade').serialize(),
-            beforeSend: function () {
-                $("#load").show();
-            },
-            success: function (data) {
-                $("#load").fadeOut(2000, function () {
-                    if(data==='2'){
-                        alert('Erro ao cadastrar a cidade');
-                    }else if(data==='1'){
-                        alert('Cidade cadastrada com sucesso!');
-                        window.location.href = url + '/cidades';
-                    }
-                });
-            }
-        });
+        if($('#cidade').val()==="" || $('#estado').val()===""){
+            $('#alert_erro_cadastros').html('Preencha todos os campos');
+            $('#alert_erro_cadastros').show();
+            return false;
+        }else {
+            $.ajax({
+                url: url + '/_controller/ajax/insert_cidade.php',
+                type: 'post',
+                dataType: 'text',
+                data: $('#form-cidade').serialize(),
+                beforeSend: function () {
+                    $("#load").show();
+                },
+                success: function (data) {
+                    $("#load").fadeOut(2000, function () {
+                        if (data === '2') {
+                            $('#alert_erro_cadastros').html('Erro ao cadastrar a cidade');
+                            $('#alert_erro_cadastros').show();
+                        } else if (data === '1') {
+                            $('#alert_sucesso_cadastros').html('Cidade cadastrada com sucesso!');
+                            $('#alert_sucesso_cadastros').show();
+                            setTimeout(function () {
+                                window.location.href = url + '/cidades';
+                            }, 1000);
+                        }
+                    });
+                }
+            });
+        }
     });
 
     //AJAX DELEÇÃO DE CIDADE
@@ -64,25 +74,35 @@ $(document).ready(function() {
     $('#editar_cidade').click(function () {
 
         event.preventDefault();
-        $.ajax({
-            url: url + '/_controller/ajax/editar_cidade.php',
-            type: 'post',
-            dataType: 'text',
-            data: $('#form-cidade').serialize(),
-            beforeSend: function () {
-                $("#load").show();
-            },
-            success: function (data) {
-                $("#load").fadeOut(2000, function () {
-                    if(data==='2'){
-                        alert('Erro ao atualizar os dados da cidade!');
-                    }else if(data==='1'){
-                        alert('Dados atualizados com sucesso');
-                        window.location.href = url + '/cidades';
-                    }
-                });
-            }
-        });
+        if($('#cidade').val()==="" || $('#estado').val()===""){
+            $('#alert_erro_cadastros').html('Preencha todos os campos');
+            $('#alert_erro_cadastros').show();
+            return false;
+        }else {
+            $.ajax({
+                url: url + '/_controller/ajax/editar_cidade.php',
+                type: 'post',
+                dataType: 'text',
+                data: $('#form-cidade').serialize(),
+                beforeSend: function () {
+                    $("#load").show();
+                },
+                success: function (data) {
+                    $("#load").fadeOut(2000, function () {
+                        if (data === '2') {
+                            $('#alert_erro_cadastros')('Erro ao atualizar os dados da cidade!');
+                            $('#alert_erro_cadastros').show();
+                        } else if (data === '1') {
+                            $('#alert_sucesso_cadastros').html('Dados atualizados com sucesso');
+                            $('#alert_sucesso_cadastros').show();
+                            setTimeout(function () {
+                                window.location.href = url + '/cidades';
+                            }, 1000);
+                        }
+                    });
+                }
+            });
+        }
     });
 
 

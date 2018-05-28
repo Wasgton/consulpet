@@ -16,6 +16,7 @@ include_once 'componentes/redirecionamento.php';
             <div class='col-md-9'>
                 <table class='table table-hover'>
                     <tr>
+                        <th scope="col">Detalhes</th>
                         <th scope="col">Animal</th>
                         <th scope="col">Dono</th>
                         <th scope="col">Espécie</th>
@@ -49,6 +50,7 @@ include_once 'componentes/redirecionamento.php';
                             $tipo_animal    = $dados['tpa_ds_tipo'];
 
               echo"<tr >
+                        <td class='detalhes_animal' id='$id_animal'><i class='fa fa-search' aria-hidden='true'></i></td>
                         <td class='ani_id' id='$id_animal'>$nome_animal</td>
                         <td class='ani_id' id='$id_animal'>$nome_dono</td>
                         <td class='ani_id' id='$id_animal'>$tipo_animal</td>

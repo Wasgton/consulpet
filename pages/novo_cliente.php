@@ -2,9 +2,6 @@
 
 include_once 'componentes/redirecionamento.php';
 
-?>
-<?php
-
 include_once '../_controller/config.php';
 
 ?>
@@ -19,6 +16,7 @@ include_once '../_controller/config.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <?php include_once 'componentes/alerts.php'; ?>
                 <form id='form-cliente' class="form-group form-row" method="post">
                     <div class="container">
                         <div class="row"><!--INICIO DA PRIMEIRA LINHA-->
@@ -31,11 +29,15 @@ include_once '../_controller/config.php';
                                 <input class="form-control" type="text" id="sobrenome" name="sobrenome">
                             </div>
                             <div style="padding: 5px" class="col-md-3">
-                                <label>Telefone</label>
-                                <input type="text" class="form-control" name="telefone" id="telefone">
+                                <label>CPF</label>
+                                <input class="form-control" type="text" id="cpf" name="cpf">
                             </div>
                         </div>
                         <div class="row"> <!--INICIO DA SEGUNDA LINHA-->
+                            <div style="padding: 5px" class="col-md-3">
+                                <label>Telefone</label>
+                                <input type="text" class="form-control" name="telefone" id="telefone">
+                            </div>
                             <div style="padding: 5px" class="col-md-3">
                                 <label>Endereço</label>
                                 <input type="text" class="form-control" name="endereco" id="endereco">
@@ -44,6 +46,8 @@ include_once '../_controller/config.php';
                                 <label>Bairro</label>
                                 <input type="text" class="form-control" name="bairro" id="bairro">
                             </div>
+                        </div>
+                        <div class="row"> <!--INICIO DA TERCEIRA LINHA-->
                             <div style="padding: 5px" class="col-md-3">
                                 <label>Cidade</label>
                                 <select class="tipo_usuario form-control" id="cidade" name="cidade">
@@ -55,7 +59,7 @@ include_once '../_controller/config.php';
 
                                     while($dados_cidade = mysqli_fetch_array($res_cidade)){
                                         $id_cidade = $dados_cidade['cid_id_cidade'];
-                                        $ds_cidade = utf8_encode($dados_cidade['cid_ds_cidade']);
+                                        $ds_cidade = $dados_cidade['cid_ds_cidade'];
                                         $uf_cidade = $dados_cidade['cid_est_cidade'];
 
                                         echo"<option class='option' id='$id_cidade' value='$id_cidade'>$ds_cidade/$uf_cidade</option>";
@@ -64,8 +68,6 @@ include_once '../_controller/config.php';
                                     ?>
                                 </select>
                             </div>
-                        </div>
-                        <div class="row"> <!--INICIO DA TERCEIRA LINHA-->
                             <div style="padding: 5px" class="col-md-3">
                                 <label>Sexo: </label><br>
                                 <label for="masculino">Masculino <input class="custom-radio" type="radio" id="masculino" value="masculino" name="sexo" checked></label>

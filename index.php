@@ -6,20 +6,24 @@ error_reporting(1);
 
 session_start();
 
+//$_SESSION["id"] = 1;
+
 if(isset($_SESSION["id"])){
 
-    $url = ltrim( parse_url( $_SERVER['REQUEST_URI'] , PHP_URL_PATH ) , '/' );
+    $url = ltrim( parse_url( $_SERVER['REQUEST_URI'] , PHP_URL_PATH ) );
 
     $rotas = explode( '/' , $url );
     $rotas[1];
+
 
     if($rotas[1]==""){
         $rotas[1] = 'home';
     }
 
-    include_once 'componentes/topo.php';
-
     $rota = 'pages/'.$rotas[1].'.php';
+    
+    
+    include_once 'componentes/topo.php';
 
     include_once $rota;
 

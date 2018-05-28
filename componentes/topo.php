@@ -1,6 +1,6 @@
 <?php
 
-include_once '../_controller/config.php';
+include_once '_controller/config.php';
 
 ?>
 
@@ -67,9 +67,22 @@ include_once '../_controller/config.php';
             <img id="logo" src="<?=$url_absoluta?>/img/logo.png">
         </a>
     </div>
-    <button class="btn btn-link" type="button" id="logout">
-       <a href="_controller/logout.php"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-    </button>
+    <p class="usuario"><?=$_SESSION['usuario']?></p>
+    <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="menuUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="menuUsuario">
+
+            <a class="dropdown-item" href="usuario_editar?id=<?=$_SESSION['id_pessoa']?>">Usuário</a>
+<!--            <a class="dropdown-item" href="usuario_editar?id=--><!?//=$_SESSION['id']?><!--">Another action</a>-->
+            <button class="dropdown-item" type="button">
+                <button class="btn btn-link" type="button" id="logout" style="margin: 0 auto;display: table;">
+                    <a href="_controller/logout.php"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                </button>
+            </button>
+        </div>
+    </div>
 </nav>
 
 <div class="container-fluid" id="containerBody">

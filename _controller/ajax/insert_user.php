@@ -6,21 +6,26 @@ include_once '../config.php';
 $nome   = $_POST['nome'];
 $sbnome = $_POST['sobrenome'];
 $sexo   = $_POST['sexo'];
+$cpf    = $_POST['cpf'];
+
+$caracteres = array('.','-');
+$cpf = str_replace($caracteres,'',$cpf);
+
 
 //DADOS DE USUARIO
-$words          = explode(' ',$sbnome);
-$login          = strtolower($nome.'.'.$words[count($words)-1]);
+$login          = $cpf;
 $CRVM           = $_POST['crmv'];
 $tipo_usuario   = $_POST['tipo'];
-$senha          = sha1($_POST['Senha']);
+$senha          = $_POST['Senha'];
 $sexo           = $_POST['sexo'];
 $status         = '0';
 $confirmacao    = $_POST['confirmacao'];
 
-
 if($senha!==$confirmacao){
     echo '4';
     exit;
+}else{
+    $senha = sha1($senha);
 }
 
 if(isset($_POST['status'])){
@@ -29,22 +34,20 @@ if(isset($_POST['status'])){
     $status = '0';
 }
 
-$query_validacao = "SELECT pes_nm_pessoa,
-                           pes_sbnm_pessoa
+$query_validacao = "SELECT pes_cpf_pessoa
                     FROM   pes_pessoa
-                    WHERE  pes_nm_pessoa = '$nome'
-                    AND    pes_sbnm_pessoa = '$sbnome'";
+                    WHERE  pes_cpf_pessoa = '$cpf'";
 
 $res_validacao = mysqli_query(connect(),$query_validacao);
 
 $dados_validacao = mysqli_fetch_assoc($res_validacao);
 
-if($dados_validacao['pes_nm_pessoa']=="" && $dados_validacao['pes_sbnm_pessoa']==""){
+if($dados_validacao['pes_cpf_pessoa']==""){
 
     $query_pessoa = "INSERT INTO pes_pessoa
-                   (pes_nm_pessoa,pes_sbnm_pessoa,pes_sexo_pessoa)
+                   (pes_nm_pessoa,pes_sbnm_pessoa,pes_sexo_pessoa,pes_cpf_pessoa)
                    VALUES
-                   ('$nome','$sbnome','$sexo');";
+                   ('$nome','$sbnome','$sexo','$cpf');";
 
     $con = connect();
 

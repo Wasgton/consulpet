@@ -1,7 +1,7 @@
 <?php
 
 
-if($_SESSION['tipo']=='4' || $_SESSION['tipo']=='3'){
+if($_SESSION['tipo']=='4'){
 
     $url_direcionamento = $url_absoluta.'/home';
 

@@ -10,22 +10,33 @@ $query_validacao = "SELECT 1 as retorno
                     WHERE cli_id_cliente = $id
                     AND usr_st_usuario = 1";
 
-if($rs = mysqli_query(connect(),$query_validacao)){
+if($rs = mysqli_query(connect(),$query_validacao)) {
     $dados = mysqli_fetch_array($rs);
 
-    if($dados['retorno']==1){
+    if ($dados['retorno'] == 1) {
         echo '0';
         exit;
-    }else{
+    } else {
 
-        $query_id_pessoa = "SELECT pes_id_pessoa 
+        $query_id_pessoa = "SELECT pes_id_pessoa
                             FROM pes_pessoa 
                             INNER JOIN cli_cliente on cli_id_pessoa = pes_id_pessoa
                             WHERE cli_id_cliente = $id";
 
-        $res = mysqli_query(connect(),$query_id_pessoa);
+        $res = mysqli_query(connect(), $query_id_pessoa);
         $dados = mysqli_fetch_array($res);
+
         $id_pessoa = $dados['pes_id_pessoa'];
+
+
+        $delete_consultas = "delete from atd_atendimento
+                             where atd_id_animal in (SELECT ani_id_animal
+                                                     FROM ani_animal
+                                                     WHERE ani_id_cliente = $id);
+                             ";
+
+        $delete_animais_cliente = "DELETE from ani_animal
+                                   WHERE ani_id_cliente = $id";
 
         $delete_end = "delete from end_endereco
                        where end_id_cliente = $id";
@@ -38,29 +49,39 @@ if($rs = mysqli_query(connect(),$query_validacao)){
 
         $delete_pes = "delete from pes_pessoa
                        where pes_id_pessoa = $id_pessoa";
-
-        if(mysqli_query(connect(),$delete_end)){
-            if(mysqli_query(connect(),$delete_usr)){
-                if(mysqli_query(connect(),$delete_cli)){
-                    if(mysqli_query(connect(),$delete_pes)){
-                        echo '5';
-                        exit;
-                    }else{
-                        echo '4';
+        if (mysqli_query(connect(), $delete_consultas)) {
+            if (mysqli_query(connect(), $delete_animais_cliente)) {
+                if (mysqli_query(connect(), $delete_end)) {
+                    if (mysqli_query(connect(), $delete_usr)) {
+                        if (mysqli_query(connect(), $delete_cli)) {
+                            if (mysqli_query(connect(), $delete_pes)) {
+                                echo '5';
+                                exit;
+                            } else {
+                                echo '4';
+                                exit;
+                            }
+                        } else {
+                            echo '3';
+                            exit;
+                        }
+                    } else {
+                        echo '2';
                         exit;
                     }
-                }else {
-                    echo '3';
+                } else {
+                    echo '1';
                     exit;
                 }
-            }else{
-                echo '2';
+
+            } else {
+                echo '7';
                 exit;
             }
-        }else {
-            echo '1';
+
+        } else {
+            echo '6';
             exit;
         }
-
     }
 }

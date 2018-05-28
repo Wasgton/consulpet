@@ -6,13 +6,17 @@ include_once '../config.php';
 $nome   = $_POST['nome'];
 $sbnome = $_POST['sobrenome'];
 $sexo   = $_POST['sexo'];
+$cpf    = $_POST['cpf'];
+
+$caracteres = array('.','-');
+$cpf = str_replace($caracteres,'',$cpf);
 
 //DADOS DE USUARIO
-$words          = explode(' ',$sbnome);
-$login          = strtolower($nome.'.'.$words[count($words)-1]);
+
+$login          = $cpf;
 $tipo_usuario   = 4;
 $senha          = sha1(123456);
-$status         = '0';
+$status         = '1';
 
 //DADOS CLIENTE
 $telefone = $_POST['telefone'];
@@ -22,9 +26,9 @@ $cidade   = $_POST['cidade'];
 
 
 $query_pessoa = "INSERT INTO pes_pessoa
-                 (pes_nm_pessoa,pes_sbnm_pessoa,pes_sexo_pessoa)
+                 (pes_nm_pessoa,pes_sbnm_pessoa,pes_sexo_pessoa,pes_cpf_pessoa)
                  VALUES
-                 ('$nome','$sbnome','$sexo');";
+                 ('$nome','$sbnome','$sexo','$cpf');";
 
 $con = connect();
 

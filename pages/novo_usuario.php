@@ -18,7 +18,9 @@ include_once '../_controller/config.php';
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <?php include 'componentes/alerts.php';?>
             <form id='form-usuario' class="form-group form-row" method="post">
+
                 <div class="container">
                     <div class="alert alert-success" role="alert" id="alert_sucesso_usuario"></div>
                     <div class="alert alert-danger" role="alert" id="alert_erro_usuario"></div>
@@ -36,13 +38,15 @@ include_once '../_controller/config.php';
                             <select class="tipo_usuario form-control" id="tipo" name="tipo">
                                 <option id="0">----Escolha um tipo de usuário----</option>
                                 <?php
-                                    $query_tipo = "SELECT * FROM tpu_tipo_usuario";
+                                    $query_tipo = "SELECT * 
+                                                   FROM tpu_tipo_usuario
+                                                   WHERE tpu_id_tipo_usuario <> 4";
 
                                     $res_tipo = mysqli_query(connect(),$query_tipo);
 
                                     while($dados_tipo = mysqli_fetch_array($res_tipo)){
                                         $id = $dados_tipo['tpu_id_tipo_usuario'];
-                                        $tipo = utf8_encode($dados_tipo['tpu_ds_tipo_usuario']);
+                                        $tipo = $dados_tipo['tpu_ds_tipo_usuario'];
 
                                         echo  "<option class='option' id='$id' value='$id'>$tipo</option>";
                                     }
@@ -55,6 +59,10 @@ include_once '../_controller/config.php';
                         </div>
                     </div>
                     <div class="row"> <!--INICIO DA SEGUNDA LINHA-->
+                        <div style="padding: 5px" class="col-md-3">
+                            <label>CPF</label>
+                            <input class="form-control" type="text" id="cpf" name="cpf" maxlength="14">
+                        </div>
                         <div style="padding: 5px" class="col-md-3">
                             <label>Senha</label>
                             <input class="form-control" type="password" id="Senha" name="Senha">

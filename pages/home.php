@@ -3,9 +3,15 @@
         <div class="container">
             <div class="row">
                 <?php
+                if($_SESSION['tipo']!=4) {
+                    $page = "";
+                    if ($_SESSION['tipo'] != 3) {
+                        $page = 'clientes';
+                    } else {
+                        $page = 'v_clientes';
+                    }
                 if($_SESSION['tipo']!=4 && $_SESSION['tipo']!=3){
-
-                    echo'
+                    echo '
                         <div class="col-md-4">
                             <div class="card">
                                 <a href="usuarios" class="link-full">
@@ -17,10 +23,11 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
-                        <div class="col-md-4">
+                        </div>';
+                }
+                     echo '<div class="col-md-4">
                                     <div class="card">
-                                        <a href="clientes" class="link-full">
+                                        <a href="' . $page . '" class="link-full">
                                             <div class="card-header">
                                                 <h5 class="card-title">Clientes</h5>
                                             </div>
@@ -29,8 +36,10 @@
                                             </div>
                                         </a>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
+                                </div>';
+                    if ($_SESSION['tipo'] != 4) {
+
+                        echo '<div class="col-md-4">
                                     <div class="card">
                                         <a href="animais" class="link-full">
                                             <div class="card-header">
@@ -44,9 +53,9 @@
                                 </div>
                                 </div>
                                 <div class="row">';
-                            }
+                    }
+                }
                         ?>
-
 
 
                 <div class="col-md-4">

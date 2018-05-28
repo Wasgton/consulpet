@@ -14,6 +14,7 @@ include_once '../_controller/config.php';
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <?php include_once 'componentes/alerts.php'; ?>
                 <form id='form-animais' class="form-group form-row" method="post">
                     <div class="container">
                         <div class="row"><!--INICIO DA PRIMEIRA LINHA-->
@@ -49,7 +50,7 @@ include_once '../_controller/config.php';
                                 <input class="form-control" type="text" id="idade" name="idade" maxlength="2">
                             </div>
                             <div style="padding: 5px" class="col-md-1">
-                                <label for="peso">Peso (Kg)</label>
+                                <label for="peso">Peso (g)</label>
                                 <input class="form-control" type="text" id="peso" name="peso">
                             </div>
                             <div style="padding: 5px" class="col-md-1">

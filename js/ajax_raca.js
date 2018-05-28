@@ -5,25 +5,37 @@ $(document).ready(function() {
     $('#cadastrar_raca').click(function () {
 
         event.preventDefault();
-        $.ajax({
-            url: url + '/_controller/ajax/insert_raca.php',
-            type: 'post',
-            dataType: 'text',
-            data: $('#form-raca').serialize(),
-            beforeSend: function () {
-                $("#load").show();
-            },
-            success: function (data) {
-                $("#load").fadeOut(2000, function () {
-                    if(data==='2'){
-                        alert('Erro ao cadastrar a raça');
-                    }else if(data==='1'){
-                        alert('Raça cadastrada com sucesso!');
-                        window.location.href = url + '/racas';
-                    }
-                });
-            }
-        });
+
+        if($('#nome').val()==="" || $('#especie').val()==="" ){
+            $('#alert_erro_cadastros').html('Preencha todos os campos');
+            $('#alert_erro_cadastros').show();
+            return false;
+        }else {
+
+            $.ajax({
+                url: url + '/_controller/ajax/insert_raca.php',
+                type: 'post',
+                dataType: 'text',
+                data: $('#form-raca').serialize(),
+                beforeSend: function () {
+                    $("#load").show();
+                },
+                success: function (data) {
+                    $("#load").fadeOut(2000, function () {
+                        if (data === '2') {
+                            $('#alert_erro_cadastros').html('Erro ao cadastrar a raça');
+                            $('#alert_erro_cadastros').show();
+                        } else if (data === '1') {
+                            $('#alert_sucesso_cadastros').html('Raça cadastrada com sucesso!');
+                            $('#alert_sucesso_cadastros').show();
+                            setTimeout(function () {
+                                window.location.href = url + '/racas';
+                            }, 1000);
+                        }
+                    });
+                }
+            });
+        }
     });
 
     //AJAX DELEÇÃO DE RAÇA
@@ -61,24 +73,35 @@ $(document).ready(function() {
     $('#editar_raca').click(function () {
 
         event.preventDefault();
-        $.ajax({
-            url: url + '/_controller/ajax/editar_raca.php',
-            type: 'post',
-            dataType: 'text',
-            data: $('#form-raca').serialize(),
-            beforeSend: function () {
-                $("#load").show();
-            },
-            success: function (data) {
-                $("#load").fadeOut(2000, function () {
-                    if(data==='2'){
-                        alert('Erro ao atualizar os dados da raça!');
-                    }else if(data==='1'){
-                        alert('Dados atualizados com sucesso');
-                        window.location.href = url + '/racas';
-                    }
-                });
-            }
-        });
+
+        if($('#nome').val()==="" || $('#especie').val()==="" ){
+            $('#alert_erro_cadastros').html('Preencha todos os campos');
+            $('#alert_erro_cadastros').show();
+            return false;
+        }else {
+            $.ajax({
+                url: url + '/_controller/ajax/editar_raca.php',
+                type: 'post',
+                dataType: 'text',
+                data: $('#form-raca').serialize(),
+                beforeSend: function () {
+                    $("#load").show();
+                },
+                success: function (data) {
+                    $("#load").fadeOut(2000, function () {
+                        if (data === '2') {
+                            $('#alert_erro_cadastros').html('Erro ao atualizar os dados da raça!');
+                            $('#alert_erro_cadastros').show();
+                        } else if (data === '1') {
+                            $('#alert_sucesso_cadastros').html('Dados atualizados com sucesso');
+                            $('#alert_sucesso_cadastros').show();
+                            setTimeout(function () {
+                                window.location.href = url + '/racas';
+                            }, 1000);
+                        }
+                    });
+                }
+            });
+        }
     });
 });
